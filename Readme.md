@@ -34,6 +34,6 @@ The Smart USB Data Loss Prevention System is a lightweight, ML-powered Splunk ap
 - **Unsupervised approach**: No need for historical breach data, learns from normal operations
 
 ## Support & Contact
-For technical support or questions about this implementation, please contact the development team : aayushr2201@gmail.com, dadwalkhushi.
+For technical support or questions about this implementation, please contact the development team : aayushr2201@gmail.com, dadwalkhushi05@gmail.com.
 
 ---
