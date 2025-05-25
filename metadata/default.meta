@@ -1,0 +1,46 @@
+# Smart USB DLP System - Permissions and Metadata Configuration
+
+# Global app settings
+[]
+access = read : [ * ], write : [ admin, power ]
+export = system
+
+# Saved searches permissions
+[/savedsearches]
+access = read : [ * ], write : [ admin, power ]
+export = system
+
+# Views and dashboards
+[/views]
+access = read : [ * ], write : [ admin, power ]
+export = system
+
+# Data models
+[/datamodels]
+access = read : [ * ], write : [ admin, power ]
+export = system
+
+# Macros permissions
+[/macros]
+access = read : [ * ], write : [ admin, power ]
+export = system
+
+# Lookups permissions
+[/lookups]
+access = read : [ * ], write : [ admin, power ]
+export = system
+
+# App configuration
+[/app]
+access = read : [ * ], write : [ admin ]
+export = system
+
+# Bin scripts
+[/bin]
+access = read : [ admin, power ], write : [ admin ]
+export = system
+
+# Allow all users to use the app but restrict configuration changes to admins
+[/default]
+access = read : [ * ], write : [ admin, power ]
+export = system
