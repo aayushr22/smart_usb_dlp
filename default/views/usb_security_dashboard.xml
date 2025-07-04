@@ -1,0 +1,353 @@
+<form version="1.1">
+  <label>Smart USB DLP Security Dashboard</label>
+  <description>Real-time monitoring and anomaly detection for USB data transfer activities</description>
+  
+  <!-- Time Range Controls -->
+  <fieldset submitButton="true" autoRun="true">
+    <input type="time" token="time_range">
+      <label>Time Range</label>
+      <default>
+        <earliest>-24h@h</earliest>
+        <latest>now</latest>
+      </default>
+    </input>
+    <input type="dropdown" token="user_filter">
+      <label>User Filter</label>
+      <choice value="*">All Users</choice>
+      <default>*</default>
+      <search>
+        <query>
+          index=usb_security sourcetype="usb:activity" 
+          | stats count by user 
+          | sort -count 
+          | head 20
+        </query>
+        <earliest>$time_range.earliest$</earliest>
+        <latest>$time_range.latest$</latest>
+      </search>
+      <fieldForLabel>user</fieldForLabel>
+      <fieldForValue>user</fieldForValue>
+    </input>
+    <input type="dropdown" token="risk_filter">
+      <label>Risk Level</label>
+      <choice value="*">All Levels</choice>
+      <choice value="CRITICAL">Critical</choice>
+      <choice value="HIGH">High</choice>
+      <choice value="MEDIUM">Medium</choice>
+      <choice value="LOW">Low</choice>
+      <default>*</default>
+    </input>
+  </fieldset>
+
+  <!-- Key Metrics Row -->
+  <row>
+    <panel>
+      <title>Active Anomalies</title>
+      <single>
+        <search>
+          <query>
+            index=usb_security sourcetype="usb:activity" user=$user_filter$ 
+            | eval hour=tonumber(strftime(_time, "%H")), day_of_week=tonumber(strftime(_time, "%w"))
+            | stats avg(bytes_written) as avg_bytes by user, device_type, hour, day_of_week, _time
+            | apply usb_baseline_model
+            | where cluster=-1
+            | stats count
+          </query>
+          <earliest>$time_range.earliest$</earliest>
+          <latest>$time_range.latest$</latest>
+        </search>
+        <option name="drilldown">none</option>
+        <option name="colorBy">value</option>
+        <option name="colorMode">block</option>
+        <option name="rangeColors">["0x65A637","0xF7BC38","0xF58F39","0xD93F3C"]</option>
+        <option name="rangeValues">[0,5,15,30]</option>
+        <option name="refresh.display">progressbar</option>
+      </single>
+    </panel>
+    
+    <panel>
+      <title>Total Data Transferred</title>
+      <single>
+        <search>
+          <query>
+            index=usb_security sourcetype="usb:activity" user=$user_filter$
+            | stats sum(bytes_written) as total_bytes
+            | eval total_gb=round(total_bytes/1073741824,2)
+            | fields total_gb
+          </query>
+          <earliest>$time_range.earliest$</earliest>
+          <latest>$time_range.latest$</latest>
+        </search>
+        <option name="drilldown">none</option>
+        <option name="numberPrecision">0.00</option>
+        <option name="unit">GB</option>
+        <option name="useColors">1</option>
+        <option name="colorBy">value</option>
+        <option name="colorMode">block</option>
+        <option name="rangeColors">["0x65A637","0xF7BC38","0xF58F39","0xD93F3C"]</option>
+        <option name="rangeValues">[0,100,500,1000]</option>
+      </single>
+    </panel>
+    
+    <panel>
+      <title>Active Users</title>
+      <single>
+        <search>
+          <query>
+            index=usb_security sourcetype="usb:activity" user=$user_filter$
+            | stats dc(user) as unique_users
+          </query>
+          <earliest>$time_range.earliest$</earliest>
+          <latest>$time_range.latest$</latest>
+        </search>
+        <option name="drilldown">none</option>
+        <option name="colorBy">value</option>
+        <option name="colorMode">block</option>
+        <option name="rangeColors">["0x65A637","0xF7BC38","0xF58F39"]</option>
+        <option name="rangeValues">[0,10,20]</option>
+      </single>
+    </panel>
+    
+    <panel>
+      <title>Unique Devices</title>
+      <single>
+        <search>
+          <query>
+            index=usb_security sourcetype="usb:activity" user=$user_filter$
+            | stats dc(device_id) as unique_devices
+          </query>
+          <earliest>$time_range.earliest$</earliest>
+          <latest>$time_range.latest$</latest>
+        </search>
+        <option name="drilldown">none</option>
+        <option name="colorBy">value</option>
+        <option name="colorMode">block</option>
+        <option name="rangeColors">["0x65A637","0xF7BC38","0xF58F39"]</option>
+        <option name="rangeValues">[0,15,30]</option>
+      </single>
+    </panel>
+  </row>
+
+  <!-- Real-time Anomaly Detection -->
+  <row>
+    <panel>
+      <title>Real-time Anomaly Detection</title>
+      <table>
+        <search>
+          <query>
+            index=usb_security sourcetype="usb:activity" user=$user_filter$ 
+            | eval hour=tonumber(strftime(_time, "%H")), day_of_week=tonumber(strftime(_time, "%w"))
+            | stats avg(bytes_written) as avg_bytes, stdev(bytes_written) as std_bytes, count as session_count by user, device_type, hour, day_of_week, _time
+            | eval std_bytes=if(isnull(std_bytes) OR std_bytes=0, avg_bytes*0.1, std_bytes)
+            | apply usb_baseline_model
+            | where cluster=-1
+            | eval risk_score=case(avg_bytes>1073741824, "CRITICAL", avg_bytes>536870912, "HIGH", avg_bytes>268435456, "MEDIUM", 1=1, "LOW")
+            | eval anomaly_reason=case(avg_bytes>1073741824, "Massive data transfer (>1GB)", hour<7 OR hour>19, "Off-hours suspicious activity", session_count>10, "Excessive access frequency", 1=1, "Unusual pattern detected")
+            | eval size_mb=round(avg_bytes/1048576,2)
+            | eval timestamp=strftime(_time, "%Y-%m-%d %H:%M:%S")
+            | where risk_score="$risk_filter$" OR "$risk_filter$"="*"
+            | table timestamp, user, device_type, size_mb, risk_score, anomaly_reason
+            | sort -timestamp
+            | head 20
+          </query>
+          <earliest>$time_range.earliest$</earliest>
+          <latest>$time_range.latest$</latest>
+          <refresh>30s</refresh>
+        </search>
+        <option name="drilldown">cell</option>
+        <option name="refresh.display">progressbar</option>
+        <option name="rowNumbers">true</option>
+        <format type="color" field="risk_score">
+          <colorPalette type="map">{"CRITICAL":#D93F3C,"HIGH":#F58F39,"MEDIUM":#F7BC38,"LOW":#65A637}</colorPalette>
+        </format>
+        <format type="number" field="size_mb">
+          <option name="precision">2</option>
+          <option name="unit">MB</option>
+        </format>
+      </table>
+    </panel>
+  </row>
+
+  <!-- Charts Row -->
+  <row>
+    <panel>
+      <title>Data Transfer Trends (Last 24h)</title>
+      <chart>
+        <search>
+          <query>
+            index=usb_security sourcetype="usb:activity" user=$user_filter$ earliest=-24h@h
+            | bucket _time span=1h
+            | stats sum(bytes_written) as total_bytes by _time
+            | eval total_mb=round(total_bytes/1048576,2)
+            | timechart span=1h sum(total_mb) as "Data Transferred (MB)"
+          </query>
+          <earliest>$time_range.earliest$</earliest>
+          <latest>$time_range.latest$</latest>
+        </search>
+        <option name="charting.chart">column</option>
+        <option name="charting.axisTitleX.text">Time</option>
+        <option name="charting.axisTitleY.text">Data Transferred (MB)</option>
+        <option name="charting.legend.placement">bottom</option>
+        <option name="charting.chart.showDataLabels">none</option>
+        <option name="charting.seriesColors">[0x1f77b4]</option>
+      </chart>
+    </panel>
+    
+    <panel>
+      <title>Top Users by Data Transfer</title>
+      <chart>
+        <search>
+          <query>
+            index=usb_security sourcetype="usb:activity" user=$user_filter$
+            | stats sum(bytes_written) as total_bytes by user
+            | eval total_mb=round(total_bytes/1048576,2)
+            | sort -total_mb
+            | head 10
+          </query>
+          <earliest>$time_range.earliest$</earliest>
+          <latest>$time_range.latest$</latest>
+        </search>
+        <option name="charting.chart">pie</option>
+        <option name="charting.legend.placement">right</option>
+        <option name="charting.chart.showPercent">true</option>
+      </chart>
+    </panel>
+  </row>
+
+  <!-- Device Analysis -->
+  <row>
+    <panel>
+      <title>Device Type Distribution</title>
+      <chart>
+        <search>
+          <query>
+            index=usb_security sourcetype="usb:activity" user=$user_filter$
+            | stats count as usage_count, sum(bytes_written) as total_bytes by device_type
+            | eval total_gb=round(total_bytes/1073741824,2)
+          </query>
+          <earliest>$time_range.earliest$</earliest>
+          <latest>$time_range.latest$</latest>
+        </search>
+        <option name="charting.chart">bar</option>
+        <option name="charting.axisTitleX.text">Usage Count</option>
+        <option name="charting.axisTitleY.text">Device Type</option>
+        <option name="charting.legend.placement">bottom</option>
+      </chart>
+    </panel>
+    
+    <panel>
+      <title>Activity Heatmap (Hour vs Day)</title>
+      <viz type="heatmap_viz">
+        <search>
+          <query>
+            index=usb_security sourcetype="usb:activity" user=$user_filter$
+            | eval hour=tonumber(strftime(_time, "%H")), day_name=strftime(_time, "%A")
+            | stats count as activity_count by hour, day_name
+            | eval activity_level=case(activity_count>20, "High", activity_count>10, "Medium", 1=1, "Low")
+          </query>
+          <earliest>$time_range.earliest$</earliest>
+          <latest>$time_range.latest$</latest>
+        </search>
+        <option name="heatmap_viz.colorMode">sequential</option>
+        <option name="heatmap_viz.colorScale">linear</option>
+        <option name="heatmap_viz.maxColor">#d93f3c</option>
+        <option name="heatmap_viz.minColor">#65a637</option>
+        <option name="heatmap_viz.nullValueColor">#eee</option>
+        <option name="heatmap_viz.showValues">true</option>
+        <option name="heatmap_viz.xAxisLabel">Hour of Day</option>
+        <option name="heatmap_viz.yAxisLabel">Day of Week</option>
+      </viz>
+    </panel>
+  </row>
+
+  <!-- User Behavior Analysis -->
+  <row>
+    <panel>
+      <title>User Risk Profile Analysis</title>
+      <table>
+        <search>
+          <query>
+            index=usb_security sourcetype="usb:activity" user=$user_filter$
+            | stats sum(bytes_written) as total_bytes, count as total_sessions, dc(device_id) as unique_devices, avg(bytes_written) as avg_bytes by user
+            | eval total_gb=round(total_bytes/1073741824,2), avg_mb=round(avg_bytes/1048576,2)
+            | eval usage_pattern=case(total_gb>10, "Heavy User", total_gb>2, "Moderate User", 1=1, "Light User")
+            | eval risk_indicator=case(unique_devices>5 AND total_gb>5, "High Risk", unique_devices>3 OR total_gb>3, "Medium Risk", 1=1, "Low Risk")
+            | sort -total_gb
+            | head 15
+            | table user, total_gb, total_sessions, unique_devices, avg_mb, usage_pattern, risk_indicator
+          </query>
+          <earliest>$time_range.earliest$</earliest>
+          <latest>$time_range.latest$</latest>
+        </search>
+        <option name="drilldown">cell</option>
+        <option name="rowNumbers">true</option>
+        <format type="color" field="risk_indicator">
+          <colorPalette type="map">{"High Risk":#D93F3C,"Medium Risk":#F7BC38,"Low Risk":#65A637}</colorPalette>
+        </format>
+        <format type="color" field="usage_pattern">
+          <colorPalette type="map">{"Heavy User":#F58F39,"Moderate User":#F7BC38,"Light User":#65A637}</colorPalette>
+        </format>
+        <format type="number" field="total_gb">
+          <option name="precision">2</option>
+          <option name="unit">GB</option>
+        </format>
+        <format type="number" field="avg_mb">
+          <option name="precision">2</option>
+          <option name="unit">MB</option>
+        </format>
+      </table>
+    </panel>
+  </row>
+
+  <!-- Additional Security Insights -->
+  <row>
+    <panel>
+      <title>Security Compliance Summary</title>
+      <table>
+        <search>
+          <query>
+            index=usb_security sourcetype="usb:activity" user=$user_filter$
+            | eval compliance_check=case(bytes_written>1073741824, "Policy Violation: Large Transfer", device_type="Unknown", "Policy Violation: Unregistered Device", 1=1, "Compliant")
+            | stats count by compliance_check
+            | eval percentage=round((count/sum(count))*100,2)
+            | sort -count
+          </query>
+          <earliest>$time_range.earliest$</earliest>
+          <latest>$time_range.latest$</latest>
+        </search>
+        <option name="drilldown">none</option>
+        <option name="rowNumbers">false</option>
+        <format type="color" field="compliance_check">
+          <colorPalette type="map">{"Policy Violation: Large Transfer":#D93F3C,"Policy Violation: Unregistered Device":#F58F39,"Compliant":#65A637}</colorPalette>
+        </format>
+        <format type="number" field="percentage">
+          <option name="precision">2</option>
+          <option name="unit">%</option>
+        </format>
+      </table>
+    </panel>
+    
+    <panel>
+      <title>Recent Security Events</title>
+      <table>
+        <search>
+          <query>
+            index=usb_security sourcetype="usb:security_events" user=$user_filter$
+            | eval timestamp=strftime(_time, "%Y-%m-%d %H:%M:%S")
+            | eval severity_level=case(event_type="BLOCKED_TRANSFER", "HIGH", event_type="POLICY_VIOLATION", "MEDIUM", 1=1, "LOW")
+            | table timestamp, user, event_type, device_id, description, severity_level
+            | sort -timestamp
+            | head 10
+          </query>
+          <earliest>$time_range.earliest$</earliest>
+          <latest>$time_range.latest$</latest>
+        </search>
+        <option name="drilldown">cell</option>
+        <option name="rowNumbers">true</option>
+        <format type="color" field="severity_level">
+          <colorPalette type="map">{"HIGH":#D93F3C,"MEDIUM":#F7BC38,"LOW":#65A637}</colorPalette>
+        </format>
+      </table>
+    </panel>
+  </row>
+</form>
