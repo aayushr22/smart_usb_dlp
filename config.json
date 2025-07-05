@@ -1,0 +1,29 @@
+{
+  "data_path": "/tmp/usb_monitor_data",
+  "log_path": "/tmp/usb_dlp_logs",
+  "monitor_interval": 30,
+  "threat_detection": true,
+  "ml_enabled": true,
+  "deep_learning_enabled": true,
+  "splunk_export": true,
+  "alert_threshold": 0.8,
+  "max_transfer_size": 1073741824,
+  "allowed_hours": [8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
+  "allowed_days": [0, 1, 2, 3, 4],
+  "notification_settings": {
+    "email_alerts": false,
+    "log_alerts": true,
+    "console_alerts": true
+  },
+  "security_policies": {
+    "max_device_count": 10,
+    "require_device_registration": false,
+    "block_unknown_devices": false,
+    "quarantine_suspicious_files": false
+  },
+  "model_settings": {
+    "retrain_interval": 86400,
+    "model_update_enabled": true,
+    "anomaly_detection_sensitivity": 0.7
+  }
+}

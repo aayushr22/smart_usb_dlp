@@ -3,7 +3,7 @@
 Smart USB DLP System - Threat Detection Engine
 Real-time threat analysis and response for USB data exfiltration
 """
-
+import time
 import sys
 import os
 import json
@@ -27,7 +27,7 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('/tmp/usb_threat_engine.log'),
+        logging.FileHandler('tmp/usb_threat_engine.log'),
         logging.StreamHandler()
     ]
 )
@@ -39,7 +39,7 @@ class USBThreatEngine:
     Combines rule-based detection with ML-powered anomaly detection
     """
     
-    def __init__(self, config_path='/tmp/threat_config.json'):
+    def __init__(self, config_path='tmp/threat_config.json'):
         self.config_path = config_path
         self.ml_model = None
         self.threat_rules = {}
@@ -157,6 +157,34 @@ class USBThreatEngine:
         
         logger.info(f"Initialized {len(self.threat_rules)} threat detection rules")
     
+    
+
+    def analyze_event(self, event):
+        """
+        Analyze USB event for potential threats
+        Returns: threat_score (float)
+        """
+        try:
+            # Basic threat analysis logic
+            threat_score = 0
+            
+            # Check for suspicious patterns
+            if event.get('action') == 'connect':
+                threat_score += 10
+            if event.get('device_type') == 'unknown':
+                threat_score += 20
+            if event.get('size', 0) > 1000000:  # Large transfers
+                threat_score += 15
+                
+            # Return just the threat score, not a dictionary
+            return threat_score
+            
+        except Exception as e:
+            logging.error(f"Event analysis failed: {str(e)}")
+            # Return 0 as default safe score
+            return 0
+
+
     def analyze_activity(self, activity_data):
         """
         Main threat analysis function

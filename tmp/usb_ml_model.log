@@ -1,0 +1,684 @@
+2025-07-05 05:06:36,512 - INFO - Initializing USB monitoring system...
+2025-07-05 05:06:36,514 - INFO - Scanning for USB devices...
+2025-07-05 05:06:36,992 - INFO - Starting USB event monitoring...
+2025-07-05 05:06:36,993 - INFO - USB monitoring system initialized successfully
+2025-07-05 05:06:36,998 - INFO - Initializing ML models...
+2025-07-05 05:06:36,999 - INFO - Loading models from tmp/usb_ml_models
+2025-07-05 05:06:37,001 - ERROR - Model files not found. Please train models first.
+2025-07-05 05:06:37,002 - WARNING - Traditional ML model not found - will train on first data
+2025-07-05 05:06:37,005 - INFO - Loading deep learning models from tmp/usb_deep_models
+2025-07-05 05:06:37,006 - INFO - Deep learning models loaded successfully
+2025-07-05 05:06:37,007 - INFO - Deep learning model loaded successfully
+2025-07-05 05:06:37,020 - INFO - Starting USB DLP System...
+2025-07-05 05:06:37,021 - INFO - Dashboard will be available at http://localhost:5000
+2025-07-05 05:06:37,412 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.4:5000
+2025-07-05 05:06:37,413 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-05 05:06:37,489 - INFO -  * Restarting with watchdog (windowsapi)
+2025-07-05 05:06:47,036 - INFO - Loading models from tmp/usb_ml_models
+2025-07-05 05:06:47,037 - ERROR - Model files not found. Please train models first.
+2025-07-05 05:06:47,038 - WARNING - No trained models found. Using fallback predictions.
+2025-07-05 05:06:47,059 - INFO - Loading deep learning models from tmp/usb_deep_models
+2025-07-05 05:06:47,063 - INFO - Deep learning models loaded successfully
+2025-07-05 05:06:47,064 - INFO - Advanced feature engineering for 1 records
+2025-07-05 05:06:47,293 - WARNING - Deep learning prediction failed: "['user_avg_bytes'] not in index"
+2025-07-05 05:06:47,296 - WARNING - SECURITY ALERT: MEDIUM threat detected for user bob
+2025-07-05 05:06:52,300 - INFO - Loading models from tmp/usb_ml_models
+2025-07-05 05:06:52,301 - ERROR - Model files not found. Please train models first.
+2025-07-05 05:06:52,302 - WARNING - No trained models found. Using fallback predictions.
+2025-07-05 05:06:52,307 - INFO - Loading deep learning models from tmp/usb_deep_models
+2025-07-05 05:06:52,309 - INFO - Deep learning models loaded successfully
+2025-07-05 05:06:52,310 - INFO - Advanced feature engineering for 1 records
+2025-07-05 05:06:52,431 - WARNING - Deep learning prediction failed: "['user_avg_bytes'] not in index"
+2025-07-05 05:06:52,432 - WARNING - SECURITY ALERT: MEDIUM threat detected for user bob
+2025-07-05 05:06:54,031 - INFO - Initializing USB monitoring system...
+2025-07-05 05:06:54,032 - INFO - Scanning for USB devices...
+2025-07-05 05:06:54,243 - INFO - Starting USB event monitoring...
+2025-07-05 05:06:54,243 - INFO - USB monitoring system initialized successfully
+2025-07-05 05:06:54,244 - INFO - Initializing ML models...
+2025-07-05 05:06:54,245 - INFO - Loading models from tmp/usb_ml_models
+2025-07-05 05:06:54,245 - ERROR - Model files not found. Please train models first.
+2025-07-05 05:06:54,246 - WARNING - Traditional ML model not found - will train on first data
+2025-07-05 05:06:54,246 - INFO - Loading deep learning models from tmp/usb_deep_models
+2025-07-05 05:06:54,247 - INFO - Deep learning models loaded successfully
+2025-07-05 05:06:54,247 - INFO - Deep learning model loaded successfully
+2025-07-05 05:06:54,254 - INFO - Starting USB DLP System...
+2025-07-05 05:06:54,255 - INFO - Dashboard will be available at http://localhost:5000
+2025-07-05 05:06:54,287 - WARNING -  * Debugger is active!
+2025-07-05 05:06:54,309 - INFO -  * Debugger PIN: 134-010-823
+2025-07-05 05:06:57,436 - INFO - Loading models from tmp/usb_ml_models
+2025-07-05 05:06:57,437 - ERROR - Model files not found. Please train models first.
+2025-07-05 05:06:57,438 - WARNING - No trained models found. Using fallback predictions.
+2025-07-05 05:06:57,443 - INFO - Loading deep learning models from tmp/usb_deep_models
+2025-07-05 05:06:57,444 - INFO - Deep learning models loaded successfully
+2025-07-05 05:06:57,446 - INFO - Advanced feature engineering for 1 records
+2025-07-05 05:06:57,538 - WARNING - Deep learning prediction failed: "['user_avg_bytes'] not in index"
+2025-07-05 05:06:57,539 - WARNING - SECURITY ALERT: MEDIUM threat detected for user bob
+2025-07-05 05:06:57,542 - INFO - Loading models from tmp/usb_ml_models
+2025-07-05 05:06:57,543 - ERROR - Model files not found. Please train models first.
+2025-07-05 05:06:57,544 - WARNING - No trained models found. Using fallback predictions.
+2025-07-05 05:06:57,548 - INFO - Loading deep learning models from tmp/usb_deep_models
+2025-07-05 05:06:57,549 - INFO - Deep learning models loaded successfully
+2025-07-05 05:06:57,552 - INFO - Advanced feature engineering for 1 records
+2025-07-05 05:06:57,625 - WARNING - Deep learning prediction failed: "['user_avg_bytes'] not in index"
+2025-07-05 05:06:57,626 - WARNING - SECURITY ALERT: MEDIUM threat detected for user charlie
+2025-07-05 05:07:02,629 - INFO - Loading models from tmp/usb_ml_models
+2025-07-05 05:07:02,630 - ERROR - Model files not found. Please train models first.
+2025-07-05 05:07:02,630 - WARNING - No trained models found. Using fallback predictions.
+2025-07-05 05:07:02,635 - INFO - Loading deep learning models from tmp/usb_deep_models
+2025-07-05 05:07:02,636 - INFO - Deep learning models loaded successfully
+2025-07-05 05:07:02,637 - INFO - Advanced feature engineering for 1 records
+2025-07-05 05:07:02,701 - WARNING - Deep learning prediction failed: "['user_avg_bytes'] not in index"
+2025-07-05 05:07:02,702 - WARNING - SECURITY ALERT: MEDIUM threat detected for user bob
+2025-07-05 05:07:02,704 - INFO - Loading models from tmp/usb_ml_models
+2025-07-05 05:07:02,705 - ERROR - Model files not found. Please train models first.
+2025-07-05 05:07:02,705 - WARNING - No trained models found. Using fallback predictions.
+2025-07-05 05:07:02,706 - INFO - Loading deep learning models from tmp/usb_deep_models
+2025-07-05 05:07:02,707 - INFO - Deep learning models loaded successfully
+2025-07-05 05:07:02,707 - INFO - Advanced feature engineering for 1 records
+2025-07-05 05:07:02,757 - WARNING - Deep learning prediction failed: "['user_avg_bytes'] not in index"
+2025-07-05 05:07:02,758 - WARNING - SECURITY ALERT: MEDIUM threat detected for user charlie
+2025-07-05 05:07:02,759 - INFO - Loading models from tmp/usb_ml_models
+2025-07-05 05:07:02,760 - ERROR - Model files not found. Please train models first.
+2025-07-05 05:07:02,760 - WARNING - No trained models found. Using fallback predictions.
+2025-07-05 05:07:02,763 - INFO - Loading deep learning models from tmp/usb_deep_models
+2025-07-05 05:07:02,764 - INFO - Deep learning models loaded successfully
+2025-07-05 05:07:02,764 - INFO - Advanced feature engineering for 1 records
+2025-07-05 05:07:02,816 - WARNING - Deep learning prediction failed: "['user_avg_bytes'] not in index"
+2025-07-05 05:07:02,817 - WARNING - SECURITY ALERT: MEDIUM threat detected for user charlie
+2025-07-05 05:07:04,252 - INFO - Loading models from tmp/usb_ml_models
+2025-07-05 05:07:04,253 - ERROR - Model files not found. Please train models first.
+2025-07-05 05:07:04,254 - WARNING - No trained models found. Using fallback predictions.
+2025-07-05 05:07:04,258 - INFO - Loading deep learning models from tmp/usb_deep_models
+2025-07-05 05:07:04,259 - INFO - Deep learning models loaded successfully
+2025-07-05 05:07:04,260 - INFO - Advanced feature engineering for 1 records
+2025-07-05 05:07:04,333 - WARNING - Deep learning prediction failed: "['user_avg_bytes'] not in index"
+2025-07-05 05:07:04,334 - WARNING - SECURITY ALERT: MEDIUM threat detected for user demo_user
+2025-07-05 05:07:07,819 - INFO - Loading models from tmp/usb_ml_models
+2025-07-05 05:07:07,820 - ERROR - Model files not found. Please train models first.
+2025-07-05 05:07:07,820 - WARNING - No trained models found. Using fallback predictions.
+2025-07-05 05:07:07,825 - INFO - Loading deep learning models from tmp/usb_deep_models
+2025-07-05 05:07:07,826 - INFO - Deep learning models loaded successfully
+2025-07-05 05:07:07,828 - INFO - Advanced feature engineering for 1 records
+2025-07-05 05:07:07,882 - WARNING - Deep learning prediction failed: "['user_avg_bytes'] not in index"
+2025-07-05 05:07:07,883 - WARNING - SECURITY ALERT: MEDIUM threat detected for user bob
+2025-07-05 05:07:07,884 - INFO - Loading models from tmp/usb_ml_models
+2025-07-05 05:07:07,885 - ERROR - Model files not found. Please train models first.
+2025-07-05 05:07:07,885 - WARNING - No trained models found. Using fallback predictions.
+2025-07-05 05:07:07,887 - INFO - Loading deep learning models from tmp/usb_deep_models
+2025-07-05 05:07:07,888 - INFO - Deep learning models loaded successfully
+2025-07-05 05:07:07,888 - INFO - Advanced feature engineering for 1 records
+2025-07-05 05:07:07,936 - WARNING - Deep learning prediction failed: "['user_avg_bytes'] not in index"
+2025-07-05 05:07:07,936 - WARNING - SECURITY ALERT: MEDIUM threat detected for user charlie
+2025-07-05 05:07:07,937 - INFO - Loading models from tmp/usb_ml_models
+2025-07-05 05:07:07,938 - ERROR - Model files not found. Please train models first.
+2025-07-05 05:07:07,938 - WARNING - No trained models found. Using fallback predictions.
+2025-07-05 05:07:07,939 - INFO - Loading deep learning models from tmp/usb_deep_models
+2025-07-05 05:07:07,940 - INFO - Deep learning models loaded successfully
+2025-07-05 05:07:07,940 - INFO - Advanced feature engineering for 1 records
+2025-07-05 05:07:07,974 - WARNING - Deep learning prediction failed: "['user_avg_bytes'] not in index"
+2025-07-05 05:07:07,975 - WARNING - SECURITY ALERT: MEDIUM threat detected for user charlie
+2025-07-05 05:07:09,336 - INFO - Loading models from tmp/usb_ml_models
+2025-07-05 05:07:09,337 - ERROR - Model files not found. Please train models first.
+2025-07-05 05:07:09,338 - WARNING - No trained models found. Using fallback predictions.
+2025-07-05 05:07:09,340 - INFO - Loading deep learning models from tmp/usb_deep_models
+2025-07-05 05:07:09,341 - INFO - Deep learning models loaded successfully
+2025-07-05 05:07:09,342 - INFO - Advanced feature engineering for 1 records
+2025-07-05 05:07:09,397 - WARNING - Deep learning prediction failed: "['user_avg_bytes'] not in index"
+2025-07-05 05:07:09,398 - WARNING - SECURITY ALERT: MEDIUM threat detected for user demo_user
+2025-07-05 05:07:12,977 - INFO - Loading models from tmp/usb_ml_models
+2025-07-05 05:07:12,978 - ERROR - Model files not found. Please train models first.
+2025-07-05 05:07:12,978 - WARNING - No trained models found. Using fallback predictions.
+2025-07-05 05:07:12,980 - INFO - Loading deep learning models from tmp/usb_deep_models
+2025-07-05 05:07:12,981 - INFO - Deep learning models loaded successfully
+2025-07-05 05:07:12,981 - INFO - Advanced feature engineering for 1 records
+2025-07-05 05:07:13,029 - WARNING - Deep learning prediction failed: "['user_avg_bytes'] not in index"
+2025-07-05 05:07:13,031 - WARNING - SECURITY ALERT: MEDIUM threat detected for user bob
+2025-07-05 05:07:13,032 - INFO - Loading models from tmp/usb_ml_models
+2025-07-05 05:07:13,032 - ERROR - Model files not found. Please train models first.
+2025-07-05 05:07:13,032 - WARNING - No trained models found. Using fallback predictions.
+2025-07-05 05:07:13,034 - INFO - Loading deep learning models from tmp/usb_deep_models
+2025-07-05 05:07:13,035 - INFO - Deep learning models loaded successfully
+2025-07-05 05:07:13,035 - INFO - Advanced feature engineering for 1 records
+2025-07-05 05:07:13,103 - WARNING - Deep learning prediction failed: "['user_avg_bytes'] not in index"
+2025-07-05 05:07:13,104 - WARNING - SECURITY ALERT: MEDIUM threat detected for user charlie
+2025-07-05 05:07:13,106 - INFO - Loading models from tmp/usb_ml_models
+2025-07-05 05:07:13,107 - ERROR - Model files not found. Please train models first.
+2025-07-05 05:07:13,107 - WARNING - No trained models found. Using fallback predictions.
+2025-07-05 05:07:13,113 - INFO - Loading deep learning models from tmp/usb_deep_models
+2025-07-05 05:07:13,119 - INFO - Deep learning models loaded successfully
+2025-07-05 05:07:13,120 - INFO - Advanced feature engineering for 1 records
+2025-07-05 05:07:13,196 - WARNING - Deep learning prediction failed: "['user_avg_bytes'] not in index"
+2025-07-05 05:07:13,197 - WARNING - SECURITY ALERT: MEDIUM threat detected for user charlie
+2025-07-05 05:07:14,400 - INFO - Loading models from tmp/usb_ml_models
+2025-07-05 05:07:14,402 - ERROR - Model files not found. Please train models first.
+2025-07-05 05:07:14,403 - WARNING - No trained models found. Using fallback predictions.
+2025-07-05 05:07:14,406 - INFO - Loading deep learning models from tmp/usb_deep_models
+2025-07-05 05:07:14,407 - INFO - Deep learning models loaded successfully
+2025-07-05 05:07:14,407 - INFO - Advanced feature engineering for 1 records
+2025-07-05 05:07:14,477 - WARNING - Deep learning prediction failed: "['user_avg_bytes'] not in index"
+2025-07-05 05:07:14,478 - WARNING - SECURITY ALERT: MEDIUM threat detected for user demo_user
+2025-07-05 05:07:18,199 - INFO - Loading models from tmp/usb_ml_models
+2025-07-05 05:07:18,200 - ERROR - Model files not found. Please train models first.
+2025-07-05 05:07:18,200 - WARNING - No trained models found. Using fallback predictions.
+2025-07-05 05:07:18,204 - INFO - Loading deep learning models from tmp/usb_deep_models
+2025-07-05 05:07:18,204 - INFO - Deep learning models loaded successfully
+2025-07-05 05:07:18,205 - INFO - Advanced feature engineering for 1 records
+2025-07-05 05:07:18,268 - WARNING - Deep learning prediction failed: "['user_avg_bytes'] not in index"
+2025-07-05 05:07:18,269 - WARNING - SECURITY ALERT: MEDIUM threat detected for user bob
+2025-07-05 05:07:18,271 - INFO - Loading models from tmp/usb_ml_models
+2025-07-05 05:07:18,271 - ERROR - Model files not found. Please train models first.
+2025-07-05 05:07:18,272 - WARNING - No trained models found. Using fallback predictions.
+2025-07-05 05:07:18,275 - INFO - Loading deep learning models from tmp/usb_deep_models
+2025-07-05 05:07:18,276 - INFO - Deep learning models loaded successfully
+2025-07-05 05:07:18,276 - INFO - Advanced feature engineering for 1 records
+2025-07-05 05:07:18,327 - WARNING - Deep learning prediction failed: "['user_avg_bytes'] not in index"
+2025-07-05 05:07:18,328 - WARNING - SECURITY ALERT: MEDIUM threat detected for user charlie
+2025-07-05 05:07:18,330 - INFO - Loading models from tmp/usb_ml_models
+2025-07-05 05:07:18,331 - ERROR - Model files not found. Please train models first.
+2025-07-05 05:07:18,331 - WARNING - No trained models found. Using fallback predictions.
+2025-07-05 05:07:18,333 - INFO - Loading deep learning models from tmp/usb_deep_models
+2025-07-05 05:07:18,334 - INFO - Deep learning models loaded successfully
+2025-07-05 05:07:18,334 - INFO - Advanced feature engineering for 1 records
+2025-07-05 05:07:18,385 - WARNING - Deep learning prediction failed: "['user_avg_bytes'] not in index"
+2025-07-05 05:07:18,386 - WARNING - SECURITY ALERT: MEDIUM threat detected for user charlie
+2025-07-05 05:07:18,388 - INFO - Loading models from tmp/usb_ml_models
+2025-07-05 05:07:18,388 - ERROR - Model files not found. Please train models first.
+2025-07-05 05:07:18,389 - WARNING - No trained models found. Using fallback predictions.
+2025-07-05 05:07:18,392 - INFO - Loading deep learning models from tmp/usb_deep_models
+2025-07-05 05:07:18,392 - INFO - Deep learning models loaded successfully
+2025-07-05 05:07:18,394 - INFO - Advanced feature engineering for 1 records
+2025-07-05 05:07:18,445 - WARNING - Deep learning prediction failed: "['user_avg_bytes'] not in index"
+2025-07-05 05:07:18,446 - WARNING - SECURITY ALERT: MEDIUM threat detected for user alice
+2025-07-05 05:07:19,481 - INFO - Loading models from tmp/usb_ml_models
+2025-07-05 05:07:19,482 - ERROR - Model files not found. Please train models first.
+2025-07-05 05:07:19,483 - WARNING - No trained models found. Using fallback predictions.
+2025-07-05 05:07:19,487 - INFO - Loading deep learning models from tmp/usb_deep_models
+2025-07-05 05:07:19,487 - INFO - Deep learning models loaded successfully
+2025-07-05 05:07:19,488 - INFO - Advanced feature engineering for 1 records
+2025-07-05 05:07:19,556 - WARNING - Deep learning prediction failed: "['user_avg_bytes'] not in index"
+2025-07-05 05:07:19,558 - WARNING - SECURITY ALERT: MEDIUM threat detected for user demo_user
+2025-07-05 05:07:23,448 - INFO - Loading models from tmp/usb_ml_models
+2025-07-05 05:07:23,449 - ERROR - Model files not found. Please train models first.
+2025-07-05 05:07:23,450 - WARNING - No trained models found. Using fallback predictions.
+2025-07-05 05:07:23,452 - INFO - Loading deep learning models from tmp/usb_deep_models
+2025-07-05 05:07:23,452 - INFO - Deep learning models loaded successfully
+2025-07-05 05:07:23,452 - INFO - Advanced feature engineering for 1 records
+2025-07-05 05:07:23,505 - WARNING - Deep learning prediction failed: "['user_avg_bytes'] not in index"
+2025-07-05 05:07:23,505 - WARNING - SECURITY ALERT: MEDIUM threat detected for user bob
+2025-07-05 05:07:23,506 - INFO - Loading models from tmp/usb_ml_models
+2025-07-05 05:07:23,507 - ERROR - Model files not found. Please train models first.
+2025-07-05 05:07:23,507 - WARNING - No trained models found. Using fallback predictions.
+2025-07-05 05:07:23,508 - INFO - Loading deep learning models from tmp/usb_deep_models
+2025-07-05 05:07:23,509 - INFO - Deep learning models loaded successfully
+2025-07-05 05:07:23,509 - INFO - Advanced feature engineering for 1 records
+2025-07-05 05:07:23,541 - WARNING - Deep learning prediction failed: "['user_avg_bytes'] not in index"
+2025-07-05 05:07:23,541 - WARNING - SECURITY ALERT: MEDIUM threat detected for user charlie
+2025-07-05 05:07:23,542 - INFO - Loading models from tmp/usb_ml_models
+2025-07-05 05:07:23,542 - ERROR - Model files not found. Please train models first.
+2025-07-05 05:07:23,544 - WARNING - No trained models found. Using fallback predictions.
+2025-07-05 05:07:23,546 - INFO - Loading deep learning models from tmp/usb_deep_models
+2025-07-05 05:07:23,547 - INFO - Deep learning models loaded successfully
+2025-07-05 05:07:23,547 - INFO - Advanced feature engineering for 1 records
+2025-07-05 05:07:23,587 - WARNING - Deep learning prediction failed: "['user_avg_bytes'] not in index"
+2025-07-05 05:07:23,587 - WARNING - SECURITY ALERT: MEDIUM threat detected for user charlie
+2025-07-05 05:07:23,588 - INFO - Loading models from tmp/usb_ml_models
+2025-07-05 05:07:23,589 - ERROR - Model files not found. Please train models first.
+2025-07-05 05:07:23,590 - WARNING - No trained models found. Using fallback predictions.
+2025-07-05 05:07:23,592 - INFO - Loading deep learning models from tmp/usb_deep_models
+2025-07-05 05:07:23,592 - INFO - Deep learning models loaded successfully
+2025-07-05 05:07:23,592 - INFO - Advanced feature engineering for 1 records
+2025-07-05 05:07:23,642 - WARNING - Deep learning prediction failed: "['user_avg_bytes'] not in index"
+2025-07-05 05:07:23,643 - WARNING - SECURITY ALERT: MEDIUM threat detected for user alice
+2025-07-05 05:07:24,561 - INFO - Loading models from tmp/usb_ml_models
+2025-07-05 05:07:24,561 - ERROR - Model files not found. Please train models first.
+2025-07-05 05:07:24,562 - WARNING - No trained models found. Using fallback predictions.
+2025-07-05 05:07:24,564 - INFO - Loading deep learning models from tmp/usb_deep_models
+2025-07-05 05:07:24,565 - INFO - Deep learning models loaded successfully
+2025-07-05 05:07:24,565 - INFO - Advanced feature engineering for 1 records
+2025-07-05 05:07:24,613 - WARNING - Deep learning prediction failed: "['user_avg_bytes'] not in index"
+2025-07-05 05:07:24,614 - WARNING - SECURITY ALERT: MEDIUM threat detected for user demo_user
+2025-07-05 05:07:24,615 - INFO - Loading models from tmp/usb_ml_models
+2025-07-05 05:07:24,616 - ERROR - Model files not found. Please train models first.
+2025-07-05 05:07:24,616 - WARNING - No trained models found. Using fallback predictions.
+2025-07-05 05:07:24,618 - INFO - Loading deep learning models from tmp/usb_deep_models
+2025-07-05 05:07:24,622 - INFO - Deep learning models loaded successfully
+2025-07-05 05:07:24,623 - INFO - Advanced feature engineering for 1 records
+2025-07-05 05:07:24,677 - WARNING - Deep learning prediction failed: "['user_avg_bytes'] not in index"
+2025-07-05 05:07:24,678 - WARNING - SECURITY ALERT: MEDIUM threat detected for user bob
+2025-07-05 05:07:24,679 - INFO - Loading models from tmp/usb_ml_models
+2025-07-05 05:07:24,680 - ERROR - Model files not found. Please train models first.
+2025-07-05 05:07:24,680 - WARNING - No trained models found. Using fallback predictions.
+2025-07-05 05:07:24,684 - INFO - Loading deep learning models from tmp/usb_deep_models
+2025-07-05 05:07:24,684 - INFO - Deep learning models loaded successfully
+2025-07-05 05:07:24,685 - INFO - Advanced feature engineering for 1 records
+2025-07-05 05:07:24,739 - WARNING - Deep learning prediction failed: "['user_avg_bytes'] not in index"
+2025-07-05 05:07:24,740 - WARNING - SECURITY ALERT: MEDIUM threat detected for user alice
+2025-07-05 05:07:28,646 - INFO - Loading models from tmp/usb_ml_models
+2025-07-05 05:07:28,647 - ERROR - Model files not found. Please train models first.
+2025-07-05 05:07:28,648 - WARNING - No trained models found. Using fallback predictions.
+2025-07-05 05:07:28,652 - INFO - Loading deep learning models from tmp/usb_deep_models
+2025-07-05 05:07:28,654 - INFO - Deep learning models loaded successfully
+2025-07-05 05:07:28,655 - INFO - Advanced feature engineering for 1 records
+2025-07-05 05:07:28,722 - WARNING - Deep learning prediction failed: "['user_avg_bytes'] not in index"
+2025-07-05 05:07:28,724 - WARNING - SECURITY ALERT: MEDIUM threat detected for user bob
+2025-07-05 05:07:28,725 - INFO - Loading models from tmp/usb_ml_models
+2025-07-05 05:07:28,726 - ERROR - Model files not found. Please train models first.
+2025-07-05 05:07:28,726 - WARNING - No trained models found. Using fallback predictions.
+2025-07-05 05:07:28,730 - INFO - Loading deep learning models from tmp/usb_deep_models
+2025-07-05 05:07:28,732 - INFO - Deep learning models loaded successfully
+2025-07-05 05:07:28,732 - INFO - Advanced feature engineering for 1 records
+2025-07-05 05:07:28,788 - WARNING - Deep learning prediction failed: "['user_avg_bytes'] not in index"
+2025-07-05 05:07:28,789 - WARNING - SECURITY ALERT: MEDIUM threat detected for user charlie
+2025-07-05 05:07:28,791 - INFO - Loading models from tmp/usb_ml_models
+2025-07-05 05:07:28,791 - ERROR - Model files not found. Please train models first.
+2025-07-05 05:07:28,792 - WARNING - No trained models found. Using fallback predictions.
+2025-07-05 05:07:28,793 - INFO - Loading deep learning models from tmp/usb_deep_models
+2025-07-05 05:07:28,794 - INFO - Deep learning models loaded successfully
+2025-07-05 05:07:28,794 - INFO - Advanced feature engineering for 1 records
+2025-07-05 05:07:28,846 - WARNING - Deep learning prediction failed: "['user_avg_bytes'] not in index"
+2025-07-05 05:07:28,847 - WARNING - SECURITY ALERT: MEDIUM threat detected for user charlie
+2025-07-05 05:07:28,848 - INFO - Loading models from tmp/usb_ml_models
+2025-07-05 05:07:28,849 - ERROR - Model files not found. Please train models first.
+2025-07-05 05:07:28,850 - WARNING - No trained models found. Using fallback predictions.
+2025-07-05 05:07:28,852 - INFO - Loading deep learning models from tmp/usb_deep_models
+2025-07-05 05:07:28,853 - INFO - Deep learning models loaded successfully
+2025-07-05 05:07:28,854 - INFO - Advanced feature engineering for 1 records
+2025-07-05 05:07:28,903 - WARNING - Deep learning prediction failed: "['user_avg_bytes'] not in index"
+2025-07-05 05:07:28,904 - WARNING - SECURITY ALERT: MEDIUM threat detected for user alice
+2025-07-05 05:07:29,744 - INFO - Loading models from tmp/usb_ml_models
+2025-07-05 05:07:29,746 - ERROR - Model files not found. Please train models first.
+2025-07-05 05:07:29,746 - WARNING - No trained models found. Using fallback predictions.
+2025-07-05 05:07:29,750 - INFO - Loading deep learning models from tmp/usb_deep_models
+2025-07-05 05:07:29,751 - INFO - Deep learning models loaded successfully
+2025-07-05 05:07:29,752 - INFO - Advanced feature engineering for 1 records
+2025-07-05 05:07:29,823 - WARNING - Deep learning prediction failed: "['user_avg_bytes'] not in index"
+2025-07-05 05:07:29,824 - WARNING - SECURITY ALERT: MEDIUM threat detected for user demo_user
+2025-07-05 05:07:29,826 - INFO - Loading models from tmp/usb_ml_models
+2025-07-05 05:07:29,826 - ERROR - Model files not found. Please train models first.
+2025-07-05 05:07:29,827 - WARNING - No trained models found. Using fallback predictions.
+2025-07-05 05:07:29,830 - INFO - Loading deep learning models from tmp/usb_deep_models
+2025-07-05 05:07:29,831 - INFO - Deep learning models loaded successfully
+2025-07-05 05:07:29,831 - INFO - Advanced feature engineering for 1 records
+2025-07-05 05:07:29,872 - WARNING - Deep learning prediction failed: "['user_avg_bytes'] not in index"
+2025-07-05 05:07:29,874 - WARNING - SECURITY ALERT: MEDIUM threat detected for user bob
+2025-07-05 05:07:29,875 - INFO - Loading models from tmp/usb_ml_models
+2025-07-05 05:07:29,875 - ERROR - Model files not found. Please train models first.
+2025-07-05 05:07:29,876 - WARNING - No trained models found. Using fallback predictions.
+2025-07-05 05:07:29,878 - INFO - Loading deep learning models from tmp/usb_deep_models
+2025-07-05 05:07:29,879 - INFO - Deep learning models loaded successfully
+2025-07-05 05:07:29,879 - INFO - Advanced feature engineering for 1 records
+2025-07-05 05:07:29,923 - WARNING - Deep learning prediction failed: "['user_avg_bytes'] not in index"
+2025-07-05 05:07:29,924 - WARNING - SECURITY ALERT: MEDIUM threat detected for user alice
+2025-07-05 06:03:09,897 - INFO - Starting Smart USB DLP System
+2025-07-05 06:03:09,899 - INFO - Model initialized successfully
+2025-07-05 06:03:23,216 - INFO - ML model loaded successfully
+2025-07-05 06:03:23,216 - INFO - Configuration loaded from file
+2025-07-05 06:03:23,216 - INFO - Initialized 7 threat detection rules
+2025-07-05 06:03:23,217 - INFO - Starting comprehensive evaluation
+2025-07-05 06:03:23,217 - INFO - Generating 5000 samples for evaluation
+2025-07-05 06:03:25,081 - INFO - Extracting features from 100 records
+2025-07-05 06:03:25,120 - INFO - Feature extraction completed. Shape: (100, 17)
+2025-07-05 06:03:25,120 - INFO - Starting model training...
+2025-07-05 06:03:25,126 - INFO - Training DBSCAN model...
+2025-07-05 06:03:25,131 - INFO - Training Isolation Forest model...
+2025-07-05 06:03:25,240 - INFO - Evaluating model performance...
+2025-07-05 06:03:25,246 - INFO - Anomaly Detection Rates:
+2025-07-05 06:03:25,246 - INFO -   DBSCAN: 100.00%
+2025-07-05 06:03:25,246 - INFO -   Isolation Forest: 10.00%
+2025-07-05 06:03:25,246 - INFO -   Combined: 100.00%
+2025-07-05 06:03:25,246 - INFO - Saving models to C:\Users\aayus\AppData\Local\Temp\tmpsjqanhfo
+2025-07-05 06:03:25,275 - INFO - Models saved successfully
+2025-07-05 06:03:25,275 - INFO - Model training completed successfully
+2025-07-05 06:03:25,297 - INFO - Extracting features from 100 records
+2025-07-05 06:03:25,308 - INFO - Feature extraction completed. Shape: (100, 17)
+2025-07-05 06:03:25,315 - INFO - Extracting features from 0 records
+2025-07-05 06:03:25,315 - INFO - Extracting features from 1 records
+2025-07-05 06:03:25,365 - INFO - Extracting features from 100 records
+2025-07-05 06:03:25,377 - INFO - Feature extraction completed. Shape: (100, 17)
+2025-07-05 06:03:25,388 - INFO - Extracting features from 100 records
+2025-07-05 06:03:25,396 - INFO - Feature extraction completed. Shape: (100, 17)
+2025-07-05 06:03:25,396 - INFO - Starting model training...
+2025-07-05 06:03:25,400 - INFO - Training DBSCAN model...
+2025-07-05 06:03:25,402 - INFO - Training Isolation Forest model...
+2025-07-05 06:03:25,515 - INFO - Evaluating model performance...
+2025-07-05 06:03:25,521 - INFO - Anomaly Detection Rates:
+2025-07-05 06:03:25,521 - INFO -   DBSCAN: 100.00%
+2025-07-05 06:03:25,523 - INFO -   Isolation Forest: 10.00%
+2025-07-05 06:03:25,523 - INFO -   Combined: 100.00%
+2025-07-05 06:03:25,523 - INFO - Saving models to C:\Users\aayus\AppData\Local\Temp\tmp5rpbszay
+2025-07-05 06:03:25,552 - INFO - Models saved successfully
+2025-07-05 06:03:25,552 - INFO - Model training completed successfully
+2025-07-05 06:03:28,724 - INFO - Extracting features from 100 records
+2025-07-05 06:03:28,739 - INFO - Feature extraction completed. Shape: (100, 17)
+2025-07-05 06:03:28,740 - INFO - Starting model training...
+2025-07-05 06:03:28,744 - INFO - Training DBSCAN model...
+2025-07-05 06:03:28,746 - INFO - Training Isolation Forest model...
+2025-07-05 06:03:28,868 - INFO - Evaluating model performance...
+2025-07-05 06:03:28,872 - INFO - Anomaly Detection Rates:
+2025-07-05 06:03:28,872 - INFO -   DBSCAN: 100.00%
+2025-07-05 06:03:28,873 - INFO -   Isolation Forest: 10.00%
+2025-07-05 06:03:28,873 - INFO -   Combined: 100.00%
+2025-07-05 06:03:28,873 - INFO - Saving models to C:\Users\aayus\AppData\Local\Temp\tmp1sx30omd
+2025-07-05 06:03:28,900 - INFO - Models saved successfully
+2025-07-05 06:03:28,900 - INFO - Model training completed successfully
+2025-07-05 06:03:28,901 - INFO - Loading models from C:\Users\aayus\AppData\Local\Temp\tmp1sx30omd
+2025-07-05 06:03:28,981 - INFO - Loaded model version: 1.0
+2025-07-05 06:03:29,052 - INFO - Extracting features from 100 records
+2025-07-05 06:03:29,062 - INFO - Feature extraction completed. Shape: (100, 17)
+2025-07-05 06:03:29,062 - INFO - Starting model training...
+2025-07-05 06:03:29,066 - INFO - Training DBSCAN model...
+2025-07-05 06:03:29,067 - INFO - Training Isolation Forest model...
+2025-07-05 06:03:29,174 - INFO - Evaluating model performance...
+2025-07-05 06:03:29,178 - INFO - Anomaly Detection Rates:
+2025-07-05 06:03:29,179 - INFO -   DBSCAN: 100.00%
+2025-07-05 06:03:29,179 - INFO -   Isolation Forest: 10.00%
+2025-07-05 06:03:29,180 - INFO -   Combined: 100.00%
+2025-07-05 06:03:29,180 - INFO - Saving models to C:\Users\aayus\AppData\Local\Temp\tmp8nm0oc9f
+2025-07-05 06:03:29,209 - INFO - Models saved successfully
+2025-07-05 06:03:29,210 - INFO - Model training completed successfully
+2025-07-05 06:11:39,366 - INFO - Extracting features from 100 records
+2025-07-05 06:11:39,413 - INFO - Feature extraction completed. Shape: (100, 17)
+2025-07-05 06:11:39,413 - INFO - Starting model training...
+2025-07-05 06:11:39,421 - INFO - Training DBSCAN model...
+2025-07-05 06:11:39,429 - INFO - Training Isolation Forest model...
+2025-07-05 06:11:39,532 - INFO - Evaluating model performance...
+2025-07-05 06:11:39,538 - INFO - Anomaly Detection Rates:
+2025-07-05 06:11:39,538 - INFO -   DBSCAN: 100.00%
+2025-07-05 06:11:39,538 - INFO -   Isolation Forest: 10.00%
+2025-07-05 06:11:39,539 - INFO -   Combined: 100.00%
+2025-07-05 06:11:39,539 - INFO - Saving models to C:\Users\aayus\AppData\Local\Temp\tmpp_gg_gba
+2025-07-05 06:11:39,569 - INFO - Models saved successfully
+2025-07-05 06:11:39,570 - INFO - Model training completed successfully
+2025-07-05 06:11:39,592 - INFO - Extracting features from 100 records
+2025-07-05 06:11:39,602 - INFO - Feature extraction completed. Shape: (100, 17)
+2025-07-05 06:11:39,612 - INFO - Extracting features from 0 records
+2025-07-05 06:11:39,613 - INFO - Extracting features from 1 records
+2025-07-05 06:11:39,625 - INFO - Extracting features from 100 records
+2025-07-05 06:11:39,643 - INFO - Feature extraction completed. Shape: (100, 17)
+2025-07-05 06:11:39,662 - INFO - Extracting features from 100 records
+2025-07-05 06:11:39,684 - INFO - Feature extraction completed. Shape: (100, 17)
+2025-07-05 06:11:39,684 - INFO - Starting model training...
+2025-07-05 06:11:39,689 - INFO - Training DBSCAN model...
+2025-07-05 06:11:39,691 - INFO - Training Isolation Forest model...
+2025-07-05 06:11:39,791 - INFO - Evaluating model performance...
+2025-07-05 06:11:39,797 - INFO - Anomaly Detection Rates:
+2025-07-05 06:11:39,798 - INFO -   DBSCAN: 100.00%
+2025-07-05 06:11:39,798 - INFO -   Isolation Forest: 10.00%
+2025-07-05 06:11:39,800 - INFO -   Combined: 100.00%
+2025-07-05 06:11:39,800 - INFO - Saving models to C:\Users\aayus\AppData\Local\Temp\tmpis7nd2ae
+2025-07-05 06:11:39,828 - INFO - Models saved successfully
+2025-07-05 06:11:39,829 - INFO - Model training completed successfully
+2025-07-05 06:11:42,393 - INFO - Extracting features from 100 records
+2025-07-05 06:11:42,408 - INFO - Feature extraction completed. Shape: (100, 17)
+2025-07-05 06:11:42,408 - INFO - Starting model training...
+2025-07-05 06:11:42,412 - INFO - Training DBSCAN model...
+2025-07-05 06:11:42,414 - INFO - Training Isolation Forest model...
+2025-07-05 06:11:42,517 - INFO - Evaluating model performance...
+2025-07-05 06:11:42,522 - INFO - Anomaly Detection Rates:
+2025-07-05 06:11:42,522 - INFO -   DBSCAN: 100.00%
+2025-07-05 06:11:42,522 - INFO -   Isolation Forest: 10.00%
+2025-07-05 06:11:42,522 - INFO -   Combined: 100.00%
+2025-07-05 06:11:42,522 - INFO - Saving models to C:\Users\aayus\AppData\Local\Temp\tmpljuu4gjm
+2025-07-05 06:11:42,547 - INFO - Models saved successfully
+2025-07-05 06:11:42,547 - INFO - Model training completed successfully
+2025-07-05 06:11:42,548 - INFO - Loading models from C:\Users\aayus\AppData\Local\Temp\tmpljuu4gjm
+2025-07-05 06:11:42,594 - INFO - Loaded model version: 1.0
+2025-07-05 06:11:42,650 - INFO - Extracting features from 100 records
+2025-07-05 06:11:42,659 - INFO - Feature extraction completed. Shape: (100, 17)
+2025-07-05 06:11:42,659 - INFO - Starting model training...
+2025-07-05 06:11:42,664 - INFO - Training DBSCAN model...
+2025-07-05 06:11:42,666 - INFO - Training Isolation Forest model...
+2025-07-05 06:11:42,777 - INFO - Evaluating model performance...
+2025-07-05 06:11:42,781 - INFO - Anomaly Detection Rates:
+2025-07-05 06:11:42,782 - INFO -   DBSCAN: 100.00%
+2025-07-05 06:11:42,782 - INFO -   Isolation Forest: 10.00%
+2025-07-05 06:11:42,782 - INFO -   Combined: 100.00%
+2025-07-05 06:11:42,782 - INFO - Saving models to C:\Users\aayus\AppData\Local\Temp\tmp78zllctv
+2025-07-05 06:11:42,807 - INFO - Models saved successfully
+2025-07-05 06:11:42,807 - INFO - Model training completed successfully
+2025-07-05 06:11:42,818 - INFO - Extracting features from 500 records
+2025-07-05 06:11:42,827 - INFO - Feature extraction completed. Shape: (500, 17)
+2025-07-05 06:11:42,828 - INFO - Starting model training...
+2025-07-05 06:11:42,831 - INFO - Training DBSCAN model...
+2025-07-05 06:11:42,834 - INFO - Training Isolation Forest model...
+2025-07-05 06:11:42,934 - INFO - Evaluating model performance...
+2025-07-05 06:11:42,940 - INFO - Anomaly Detection Rates:
+2025-07-05 06:11:42,940 - INFO -   DBSCAN: 95.00%
+2025-07-05 06:11:42,940 - INFO -   Isolation Forest: 14.00%
+2025-07-05 06:11:42,940 - INFO -   Combined: 95.00%
+2025-07-05 06:11:42,941 - INFO - Saving models to C:\Users\aayus\AppData\Local\Temp\tmpn2u6fcu8
+2025-07-05 06:11:42,969 - INFO - Models saved successfully
+2025-07-05 06:11:42,969 - INFO - Model training completed successfully
+2025-07-05 06:26:14,065 - INFO - Starting Smart USB DLP System
+2025-07-05 06:26:14,066 - INFO - Model initialized successfully
+2025-07-05 06:32:21,686 - ERROR - Background monitoring error: 'USBMLModel' object has no attribute 'usb_monitor'
+2025-07-05 06:32:21,687 - INFO - Starting USB DLP System...
+2025-07-05 06:32:21,688 - INFO - Dashboard will be available at http://localhost:5000
+2025-07-05 06:32:21,740 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.4:5000
+2025-07-05 06:32:21,741 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-05 06:32:21,765 - INFO -  * Restarting with watchdog (windowsapi)
+2025-07-05 06:32:23,403 - ERROR - Background monitoring error: 'USBMLModel' object has no attribute 'usb_monitor'
+2025-07-05 06:32:23,405 - INFO - Starting USB DLP System...
+2025-07-05 06:32:23,406 - INFO - Dashboard will be available at http://localhost:5000
+2025-07-05 06:32:23,421 - WARNING -  * Debugger is active!
+2025-07-05 06:32:23,426 - INFO -  * Debugger PIN: 134-010-823
+2025-07-05 06:32:31,688 - ERROR - Background monitoring error: 'USBMLModel' object has no attribute 'usb_monitor'
+2025-07-05 06:32:33,406 - ERROR - Background monitoring error: 'USBMLModel' object has no attribute 'usb_monitor'
+2025-07-05 06:32:41,689 - ERROR - Background monitoring error: 'USBMLModel' object has no attribute 'usb_monitor'
+2025-07-05 06:32:43,407 - ERROR - Background monitoring error: 'USBMLModel' object has no attribute 'usb_monitor'
+2025-07-05 06:32:51,690 - ERROR - Background monitoring error: 'USBMLModel' object has no attribute 'usb_monitor'
+2025-07-05 06:32:53,408 - ERROR - Background monitoring error: 'USBMLModel' object has no attribute 'usb_monitor'
+2025-07-05 06:32:58,415 - INFO -  * Detected change in 'C:\\Users\\aayus\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\flask\\app.py', reloading
+2025-07-05 06:32:58,439 - INFO -  * Detected change in 'C:\\Users\\aayus\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\flask\\templating.py', reloading
+2025-07-05 06:32:58,474 - INFO -  * Detected change in 'C:\\Users\\aayus\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\jinja2\\environment.py', reloading
+2025-07-05 06:32:58,513 - INFO -  * Detected change in 'C:\\Users\\aayus\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\jinja2\\loaders.py', reloading
+2025-07-05 06:32:58,856 - INFO -  * Restarting with watchdog (windowsapi)
+2025-07-05 06:33:00,578 - ERROR - Background monitoring error: 'USBMLModel' object has no attribute 'usb_monitor'
+2025-07-05 06:33:00,580 - INFO - Starting USB DLP System...
+2025-07-05 06:33:00,580 - INFO - Dashboard will be available at http://localhost:5000
+2025-07-05 06:33:00,590 - WARNING -  * Debugger is active!
+2025-07-05 06:33:00,594 - INFO -  * Debugger PIN: 134-010-823
+2025-07-05 06:33:00,625 - INFO - 127.0.0.1 - - [05/Jul/2025 06:33:00] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-07-05 06:33:01,130 - INFO - 127.0.0.1 - - [05/Jul/2025 06:33:01] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-07-05 06:33:01,137 - INFO - 127.0.0.1 - - [05/Jul/2025 06:33:01] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-07-05 06:33:01,262 - INFO - 127.0.0.1 - - [05/Jul/2025 06:33:01] "GET /?__debugger__=yes&cmd=resource&f=console.png&s=q1FBYdXxhua1oI0q6KRj HTTP/1.1" 200 -
+2025-07-05 06:33:01,495 - INFO - 127.0.0.1 - - [05/Jul/2025 06:33:01] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-07-05 06:33:01,690 - ERROR - Background monitoring error: 'USBMLModel' object has no attribute 'usb_monitor'
+2025-07-05 06:33:10,581 - ERROR - Background monitoring error: 'USBMLModel' object has no attribute 'usb_monitor'
+2025-07-05 06:33:11,692 - ERROR - Background monitoring error: 'USBMLModel' object has no attribute 'usb_monitor'
+2025-07-05 06:33:20,582 - ERROR - Background monitoring error: 'USBMLModel' object has no attribute 'usb_monitor'
+2025-07-05 06:33:21,693 - ERROR - Background monitoring error: 'USBMLModel' object has no attribute 'usb_monitor'
+2025-07-05 06:33:30,584 - ERROR - Background monitoring error: 'USBMLModel' object has no attribute 'usb_monitor'
+2025-07-05 06:33:31,694 - ERROR - Background monitoring error: 'USBMLModel' object has no attribute 'usb_monitor'
+2025-07-05 06:47:30,254 - INFO - Initializing USB DLP System
+2025-07-05 06:47:30,254 - INFO - System initialization complete
+2025-07-05 06:47:30,255 - INFO - Starting USB monitoring...
+2025-07-05 06:47:30,293 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.4:5000
+2025-07-05 06:47:30,295 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-05 06:47:35,256 - INFO - Monitoring USB activity...
+2025-07-05 06:47:40,258 - INFO - Monitoring USB activity...
+2025-07-05 06:47:45,259 - INFO - Monitoring USB activity...
+2025-07-05 06:47:50,259 - INFO - Monitoring USB activity...
+2025-07-05 06:47:55,261 - INFO - Monitoring USB activity...
+2025-07-05 06:48:00,262 - INFO - Monitoring USB activity...
+2025-07-05 06:48:02,955 - INFO - 127.0.0.1 - - [05/Jul/2025 06:48:02] "GET / HTTP/1.1" 200 -
+2025-07-05 06:48:03,220 - INFO - 127.0.0.1 - - [05/Jul/2025 06:48:03] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-05 06:48:05,263 - INFO - Monitoring USB activity...
+2025-07-05 06:48:10,264 - INFO - Monitoring USB activity...
+2025-07-05 06:48:15,265 - INFO - Monitoring USB activity...
+2025-07-05 06:48:20,267 - INFO - Monitoring USB activity...
+2025-07-05 06:48:25,267 - INFO - Monitoring USB activity...
+2025-07-05 06:48:30,268 - INFO - Monitoring USB activity...
+2025-07-05 06:48:35,269 - INFO - Monitoring USB activity...
+2025-07-05 06:48:40,269 - INFO - Monitoring USB activity...
+2025-07-05 06:48:45,271 - INFO - Monitoring USB activity...
+2025-07-05 06:48:50,272 - INFO - Monitoring USB activity...
+2025-07-05 06:48:55,273 - INFO - Monitoring USB activity...
+2025-07-05 06:48:59,635 - INFO - 127.0.0.1 - - [05/Jul/2025 06:48:59] "GET / HTTP/1.1" 200 -
+2025-07-05 06:48:59,771 - INFO - 127.0.0.1 - - [05/Jul/2025 06:48:59] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-05 06:49:00,274 - INFO - Monitoring USB activity...
+2025-07-05 06:49:05,276 - INFO - Monitoring USB activity...
+2025-07-05 06:49:10,276 - INFO - Monitoring USB activity...
+2025-07-05 06:49:15,277 - INFO - Monitoring USB activity...
+2025-07-05 06:49:20,278 - INFO - Monitoring USB activity...
+2025-07-05 06:49:25,279 - INFO - Monitoring USB activity...
+2025-07-05 06:49:30,281 - INFO - Monitoring USB activity...
+2025-07-05 06:49:35,282 - INFO - Monitoring USB activity...
+2025-07-05 06:49:40,283 - INFO - Monitoring USB activity...
+2025-07-05 06:49:42,960 - INFO - 127.0.0.1 - - [05/Jul/2025 06:49:42] "GET / HTTP/1.1" 200 -
+2025-07-05 06:49:44,822 - INFO - 127.0.0.1 - - [05/Jul/2025 06:49:44] "GET / HTTP/1.1" 200 -
+2025-07-05 06:49:45,285 - INFO - Monitoring USB activity...
+2025-07-05 06:49:48,195 - INFO - 127.0.0.1 - - [05/Jul/2025 06:49:48] "GET / HTTP/1.1" 200 -
+2025-07-05 06:49:48,991 - INFO - 127.0.0.1 - - [05/Jul/2025 06:49:48] "GET / HTTP/1.1" 200 -
+2025-07-05 06:49:50,287 - INFO - Monitoring USB activity...
+2025-07-05 06:49:55,288 - INFO - Monitoring USB activity...
+2025-07-05 06:50:00,289 - INFO - Monitoring USB activity...
+2025-07-05 06:50:10,335 - INFO - Initializing USB DLP System
+2025-07-05 06:50:10,336 - INFO - System initialization complete
+2025-07-05 06:50:10,337 - INFO - Starting USB monitoring...
+2025-07-05 06:50:10,358 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.4:5000
+2025-07-05 06:50:10,359 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-05 06:50:15,338 - INFO - Monitoring USB activity...
+2025-07-05 06:50:20,339 - INFO - Monitoring USB activity...
+2025-07-05 06:50:23,086 - INFO - 127.0.0.1 - - [05/Jul/2025 06:50:23] "GET / HTTP/1.1" 200 -
+2025-07-05 06:50:25,340 - INFO - Monitoring USB activity...
+2025-07-05 06:50:26,222 - INFO - 127.0.0.1 - - [05/Jul/2025 06:50:26] "GET / HTTP/1.1" 200 -
+2025-07-05 06:50:30,341 - INFO - Monitoring USB activity...
+2025-07-05 06:50:34,632 - INFO - 127.0.0.1 - - [05/Jul/2025 06:50:34] "GET / HTTP/1.1" 200 -
+2025-07-05 06:50:35,341 - INFO - Monitoring USB activity...
+2025-07-05 06:50:40,342 - INFO - Monitoring USB activity...
+2025-07-05 06:50:45,345 - INFO - Monitoring USB activity...
+2025-07-05 06:50:50,347 - INFO - Monitoring USB activity...
+2025-07-05 06:50:55,348 - INFO - Monitoring USB activity...
+2025-07-05 06:51:00,349 - INFO - Monitoring USB activity...
+2025-07-05 06:51:05,349 - INFO - Monitoring USB activity...
+2025-07-05 06:51:10,350 - INFO - Monitoring USB activity...
+2025-07-05 06:51:13,184 - INFO - 127.0.0.1 - - [05/Jul/2025 06:51:13] "GET / HTTP/1.1" 200 -
+2025-07-05 06:51:15,351 - INFO - Monitoring USB activity...
+2025-07-05 06:51:15,777 - INFO - 127.0.0.1 - - [05/Jul/2025 06:51:15] "GET / HTTP/1.1" 200 -
+2025-07-05 06:51:20,352 - INFO - Monitoring USB activity...
+2025-07-05 06:51:25,353 - INFO - Monitoring USB activity...
+2025-07-05 06:51:29,274 - INFO - 127.0.0.1 - - [05/Jul/2025 06:51:29] "GET / HTTP/1.1" 200 -
+2025-07-05 06:51:30,354 - INFO - Monitoring USB activity...
+2025-07-05 06:51:30,800 - INFO - 127.0.0.1 - - [05/Jul/2025 06:51:30] "GET / HTTP/1.1" 200 -
+2025-07-05 06:51:35,355 - INFO - Monitoring USB activity...
+2025-07-05 06:51:40,356 - INFO - Monitoring USB activity...
+2025-07-05 06:51:43,722 - INFO - 127.0.0.1 - - [05/Jul/2025 06:51:43] "GET / HTTP/1.1" 200 -
+2025-07-05 06:51:45,357 - INFO - Monitoring USB activity...
+2025-07-05 06:51:50,358 - INFO - Monitoring USB activity...
+2025-07-05 06:51:55,359 - INFO - Monitoring USB activity...
+2025-07-05 06:52:00,360 - INFO - Monitoring USB activity...
+2025-07-05 06:52:05,361 - INFO - Monitoring USB activity...
+2025-07-05 06:52:10,362 - INFO - Monitoring USB activity...
+2025-07-05 06:52:15,363 - INFO - Monitoring USB activity...
+2025-07-05 06:52:20,364 - INFO - Monitoring USB activity...
+2025-07-05 06:52:25,365 - INFO - Monitoring USB activity...
+2025-07-05 06:52:30,366 - INFO - Monitoring USB activity...
+2025-07-05 06:52:35,367 - INFO - Monitoring USB activity...
+2025-07-05 06:52:40,368 - INFO - Monitoring USB activity...
+2025-07-05 06:52:43,964 - INFO - 127.0.0.1 - - [05/Jul/2025 06:52:43] "GET / HTTP/1.1" 200 -
+2025-07-05 06:52:45,370 - INFO - Monitoring USB activity...
+2025-07-05 06:52:50,371 - INFO - Monitoring USB activity...
+2025-07-05 06:52:55,371 - INFO - Monitoring USB activity...
+2025-07-05 06:53:00,371 - INFO - Monitoring USB activity...
+2025-07-05 06:53:05,372 - INFO - Monitoring USB activity...
+2025-07-05 06:53:10,373 - INFO - Monitoring USB activity...
+2025-07-05 06:53:15,374 - INFO - Monitoring USB activity...
+2025-07-05 06:53:20,375 - INFO - Monitoring USB activity...
+2025-07-05 06:53:25,377 - INFO - Monitoring USB activity...
+2025-07-05 06:53:30,379 - INFO - Monitoring USB activity...
+2025-07-05 06:53:35,380 - INFO - Monitoring USB activity...
+2025-07-05 06:53:40,381 - INFO - Monitoring USB activity...
+2025-07-05 06:53:45,382 - INFO - Monitoring USB activity...
+2025-07-05 06:53:50,383 - INFO - Monitoring USB activity...
+2025-07-05 06:53:55,384 - INFO - Monitoring USB activity...
+2025-07-05 06:54:00,384 - INFO - Monitoring USB activity...
+2025-07-05 06:54:05,386 - INFO - Monitoring USB activity...
+2025-07-05 06:54:10,387 - INFO - Monitoring USB activity...
+2025-07-05 06:54:15,388 - INFO - Monitoring USB activity...
+2025-07-05 06:54:20,389 - INFO - Monitoring USB activity...
+2025-07-05 06:54:25,390 - INFO - Monitoring USB activity...
+2025-07-05 06:54:30,391 - INFO - Monitoring USB activity...
+2025-07-05 06:54:35,392 - INFO - Monitoring USB activity...
+2025-07-05 06:54:40,393 - INFO - Monitoring USB activity...
+2025-07-05 06:54:45,394 - INFO - Monitoring USB activity...
+2025-07-05 06:54:50,395 - INFO - Monitoring USB activity...
+2025-07-05 06:54:55,396 - INFO - Monitoring USB activity...
+2025-07-05 06:55:00,397 - INFO - Monitoring USB activity...
+2025-07-05 06:55:05,398 - INFO - Monitoring USB activity...
+2025-07-05 06:55:10,399 - INFO - Monitoring USB activity...
+2025-07-05 06:55:15,400 - INFO - Monitoring USB activity...
+2025-07-05 06:55:20,401 - INFO - Monitoring USB activity...
+2025-07-05 06:55:25,401 - INFO - Monitoring USB activity...
+2025-07-05 06:55:30,402 - INFO - Monitoring USB activity...
+2025-07-05 06:55:35,403 - INFO - Monitoring USB activity...
+2025-07-05 06:55:40,404 - INFO - Monitoring USB activity...
+2025-07-05 06:55:45,405 - INFO - Monitoring USB activity...
+2025-07-05 06:55:50,406 - INFO - Monitoring USB activity...
+2025-07-05 06:55:55,407 - INFO - Monitoring USB activity...
+2025-07-05 06:56:00,407 - INFO - Monitoring USB activity...
+2025-07-05 06:56:05,408 - INFO - Monitoring USB activity...
+2025-07-05 06:56:10,410 - INFO - Monitoring USB activity...
+2025-07-05 06:56:15,410 - INFO - Monitoring USB activity...
+2025-07-05 06:56:20,411 - INFO - Monitoring USB activity...
+2025-07-05 06:56:25,412 - INFO - Monitoring USB activity...
+2025-07-05 06:56:30,413 - INFO - Monitoring USB activity...
+2025-07-05 06:56:35,414 - INFO - Monitoring USB activity...
+2025-07-05 06:56:40,415 - INFO - Monitoring USB activity...
+2025-07-05 06:56:45,415 - INFO - Monitoring USB activity...
+2025-07-05 06:56:50,416 - INFO - Monitoring USB activity...
+2025-07-05 06:56:55,417 - INFO - Monitoring USB activity...
+2025-07-05 06:57:00,418 - INFO - Monitoring USB activity...
+2025-07-05 06:57:05,419 - INFO - Monitoring USB activity...
+2025-07-05 06:57:10,421 - INFO - Monitoring USB activity...
+2025-07-05 06:57:15,422 - INFO - Monitoring USB activity...
+2025-07-05 06:57:20,423 - INFO - Monitoring USB activity...
+2025-07-05 06:57:25,425 - INFO - Monitoring USB activity...
+2025-07-05 06:57:30,425 - INFO - Monitoring USB activity...
+2025-07-05 06:57:35,426 - INFO - Monitoring USB activity...
+2025-07-05 06:57:40,428 - INFO - Monitoring USB activity...
+2025-07-05 06:57:45,430 - INFO - Monitoring USB activity...
+2025-07-05 06:57:50,431 - INFO - Monitoring USB activity...
+2025-07-05 06:57:55,431 - INFO - Monitoring USB activity...
+2025-07-05 06:58:00,432 - INFO - Monitoring USB activity...
+2025-07-05 06:58:05,433 - INFO - Monitoring USB activity...
+2025-07-05 06:58:10,434 - INFO - Monitoring USB activity...
+2025-07-05 06:58:15,435 - INFO - Monitoring USB activity...
+2025-07-05 06:58:20,436 - INFO - Monitoring USB activity...
+2025-07-05 06:58:25,437 - INFO - Monitoring USB activity...
+2025-07-05 06:58:30,438 - INFO - Monitoring USB activity...
+2025-07-05 06:58:35,439 - INFO - Monitoring USB activity...
+2025-07-05 06:58:40,440 - INFO - Monitoring USB activity...
+2025-07-05 06:58:45,443 - INFO - Monitoring USB activity...
+2025-07-05 06:58:50,444 - INFO - Monitoring USB activity...
+2025-07-05 06:58:55,445 - INFO - Monitoring USB activity...
+2025-07-05 06:59:00,446 - INFO - Monitoring USB activity...
+2025-07-05 06:59:05,447 - INFO - Monitoring USB activity...
+2025-07-05 06:59:10,448 - INFO - Monitoring USB activity...
+2025-07-05 06:59:15,449 - INFO - Monitoring USB activity...
+2025-07-05 06:59:20,450 - INFO - Monitoring USB activity...
+2025-07-05 06:59:25,452 - INFO - Monitoring USB activity...
+2025-07-05 06:59:30,452 - INFO - Monitoring USB activity...
+2025-07-05 06:59:35,454 - INFO - Monitoring USB activity...
+2025-07-05 06:59:40,455 - INFO - Monitoring USB activity...
+2025-07-05 06:59:45,456 - INFO - Monitoring USB activity...
+2025-07-05 06:59:50,457 - INFO - Monitoring USB activity...
+2025-07-05 06:59:55,458 - INFO - Monitoring USB activity...
+2025-07-05 07:00:00,459 - INFO - Monitoring USB activity...
+2025-07-05 07:00:05,478 - INFO - Monitoring USB activity...
+2025-07-05 07:00:10,479 - INFO - Monitoring USB activity...
+2025-07-05 07:00:15,480 - INFO - Monitoring USB activity...
+2025-07-05 07:00:20,481 - INFO - Monitoring USB activity...
+2025-07-05 07:00:25,482 - INFO - Monitoring USB activity...

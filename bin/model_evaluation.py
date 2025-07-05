@@ -42,7 +42,7 @@ class ModelEvaluator:
     Comprehensive model evaluation suite for USB anomaly detection
     """
     
-    def __init__(self, model_path='/tmp/usb_ml_models', output_dir='/tmp/evaluation_results'):
+    def __init__(self, model_path='tmp/usb_ml_models', output_dir='tmp/evaluation_results'):
         self.model_path = model_path
         self.output_dir = output_dir
         self.ml_model = None
@@ -88,7 +88,7 @@ class ModelEvaluator:
                 anomaly_type = np.random.choice(['large_transfer', 'off_hours', 'weekend', 'unknown_device'])
                 
                 if anomaly_type == 'large_transfer':
-                    bytes_written = np.random.randint(1e9, 10e9)  # 1-10GB
+                    bytes_written = np.random.randint(1000000000, 2000000000)  # 1-10GB
                     hour = np.random.randint(8, 18)
                     day_of_week = np.random.randint(0, 5)
                 elif anomaly_type == 'off_hours':
@@ -432,7 +432,7 @@ def main():
     parser = argparse.ArgumentParser(description='USB ML Model Evaluation Suite')
     parser.add_argument('--samples', type=int, default=5000,
                        help='Number of samples to generate for evaluation')
-    parser.add_argument('--output', type=str, default='/tmp/evaluation_results',
+    parser.add_argument('--output', type=str, default='tmp/evaluation_results',
                        help='Output directory for evaluation results')
     parser.add_argument('--compare', action='store_true',
                        help='Run model comparison after evaluation')

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USB DLP Security Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <img src="{{ url_for('static', filename='img/logo.svg') }}" alt="Logo" class="logo">
+            <h1 style="display: inline-block;">USB Data Loss Prevention System</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <div class="card-header">System Status</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h3>Blocked Devices</h3>
+                        <p class="display-4">{{ status.usb_devices_blocked }}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Active Devices</h3>
+                        <p class="display-4">{{ status.active_devices }}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Threat Level</h3>
+                        <span class="badge {% if status.threat_level == 'Critical' %}bg-critical{% elif status.threat_level == 'Warning' %}bg-warning{% else %}bg-normal{% endif %}">
+                            {{ status.threat_level }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">Recent Events</div>
+            <div class="card-body">
+                <div id="event-table">
+                    <!-- Will be populated by JavaScript -->
+                    <p>Loading events...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Fetch events from API
+        fetch('/api/events')
+            .then(response => response.json())
+            .then(data => {
+                let html = '<ul class="device-list">';
+                data.recent_events.forEach(event => {
+                    html += `
+                        <li class="device-item">
+                            <span>${new Date(event.timestamp).toLocaleString()}</span>
+                            <span>${event.event.event_type || 'Unknown'}</span>
+                            <span>${event.event.device_id || 'N/A'}</span>
+                            <span class="badge ${event.score > 0.7 ? 'bg-warning' : 'bg-normal'}">
+                                ${event.action} (${event.score.toFixed(2)})
+                            </span>
+                        </li>`;
+                });
+                html += '</ul>';
+                document.getElementById('event-table').innerHTML = html;
+            });
+    </script>
+</body>
+</html>

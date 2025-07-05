@@ -1,0 +1,42 @@
+{
+  "thresholds": {
+    "large_transfer_mb": 1000,
+    "frequent_access_count": 10,
+    "suspicious_hours": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      22,
+      23
+    ],
+    "max_devices_per_user": 5,
+    "anomaly_score_threshold": -0.5
+  },
+  "risk_weights": {
+    "size_factor": 0.3,
+    "frequency_factor": 0.2,
+    "time_factor": 0.2,
+    "device_factor": 0.1,
+    "pattern_factor": 0.2
+  },
+  "response_actions": {
+    "CRITICAL": [
+      "block",
+      "alert",
+      "log"
+    ],
+    "HIGH": [
+      "alert",
+      "log"
+    ],
+    "MEDIUM": [
+      "log"
+    ],
+    "LOW": [
+      "log"
+    ]
+  }
+}
