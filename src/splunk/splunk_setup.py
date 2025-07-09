@@ -263,7 +263,7 @@ class SplunkSetup:
     
     def run_setup(self):
         """Run complete Splunk setup"""
-        print("🚀 Starting Splunk setup for USB Security Monitor...")
+        print("Starting Splunk setup for USB Security Monitor...")
         print("=" * 50)
         
         # Test authentication
