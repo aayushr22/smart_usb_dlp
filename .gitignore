@@ -12,3 +12,6 @@ venv/
 
 data/tmp/
 data/usb_dlp_logs/
+tmp/
+logs/
+*.log
