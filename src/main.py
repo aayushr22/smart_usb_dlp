@@ -4,8 +4,15 @@ Smart USB DLP System - Main Application
 
 import os
 import sys
-sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+current_dir = os.path.dirname(os.path.abspath(__file__))
+src_dir = current_dir
+usb_dir = os.path.join(src_dir, 'usb')
+
+if src_dir not in sys.path:
+    sys.path.insert(0, src_dir)
+if usb_dir not in sys.path:
+    sys.path.insert(0, usb_dir)
 
 import time
 import logging
@@ -13,6 +20,7 @@ from datetime import datetime
 from flask import Flask, render_template, jsonify, request, send_from_directory
 from flask_socketio import SocketIO
 from threading import Thread
+
 from usb.usb_monitor import USBMonitor
 from usb.usb_ml_model import USBMLModel
 
