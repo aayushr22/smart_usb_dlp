@@ -22,7 +22,7 @@ try:
 except ImportError:
     WMI_AVAILABLE = False
     
-from .usb_threat_engine import SplunkLogger
+from usb_threat_engine import SplunkLogger
 
 # logging
 logging.basicConfig(
