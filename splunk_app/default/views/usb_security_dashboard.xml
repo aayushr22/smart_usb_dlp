@@ -1,0 +1,343 @@
+<form version="1.1">
+  <label>Smart USB DLP Security Dashboard</label>
+  <description>Real-time monitoring and threat detection for USB activities with Splunk integration</description>
+  
+  <!-- Time Range Controls -->
+  <fieldset submitButton="true" autoRun="true">
+    <input type="time" token="time_range">
+      <label>Time Range</label>
+      <default>
+        <earliest>-24h@h</earliest>
+        <latest>now</latest>
+      </default>
+    </input>
+    <input type="dropdown" token="user_filter">
+      <label>User Filter</label>
+      <choice value="*">All Users</choice>
+      <default>*</default>
+      <search>
+        <query>
+          index=usb_security sourcetype="usb_security_json" 
+          | stats count by event_data.user 
+          | sort -count 
+          | head 20
+        </query>
+        <earliest>$time_range.earliest$</earliest>
+        <latest>$time_range.latest$</latest>
+      </search>
+      <fieldForLabel>event_data.user</fieldForLabel>
+      <fieldForValue>event_data.user</fieldForValue>
+    </input>
+    <input type="dropdown" token="risk_filter">
+      <label>Risk Level</label>
+      <choice value="*">All Levels</choice>
+      <choice value="CRITICAL">Critical</choice>
+      <choice value="HIGH">High</choice>
+      <choice value="MEDIUM">Medium</choice>
+      <choice value="LOW">Low</choice>
+      <default>*</default>
+    </input>
+  </fieldset>
+
+  <!-- Key Metrics Row -->
+  <row>
+    <panel>
+      <title>USB Device Connections</title>
+      <single>
+        <search>
+          <query>
+            index=usb_security event_type="usb_device_connected" 
+            | stats count
+          </query>
+          <earliest>$time_range.earliest$</earliest>
+          <latest>$time_range.latest$</latest>
+        </search>
+        <option name="drilldown">none</option>
+        <option name="colorBy">value</option>
+        <option name="colorMode">block</option>
+        <option name="rangeColors">["0x65A637","0x6DB7C6","0xF7BC38","0xF58F39","0xD93F3C"]</option>
+        <option name="rangeValues">[0,30,70,100]</option>
+      </single>
+    </panel>
+    
+    <panel>
+      <title>Threat Alerts</title>
+      <single>
+        <search>
+          <query>
+            index=usb_security threat_level IN("HIGH","CRITICAL") 
+            | stats count
+          </query>
+          <earliest>$time_range.earliest$</earliest>
+          <latest>$time_range.latest$</latest>
+        </search>
+        <option name="drilldown">none</option>
+        <option name="colorBy">value</option>
+        <option name="colorMode">block</option>
+        <option name="rangeColors">["0x65A637","0xF7BC38","0xD93F3C"]</option>
+        <option name="rangeValues">[0,5]</option>
+      </single>
+    </panel>
+    
+    <panel>
+      <title>Data Transferred</title>
+      <single>
+        <search>
+          <query>
+            index=usb_security event_type="usb_data_transfer" 
+            | stats sum(event_data.bytes_transferred) as total_bytes
+            | eval total_gb=round(total_bytes/1073741824,2)
+            | fields total_gb
+          </query>
+          <earliest>$time_range.earliest$</earliest>
+          <latest>$time_range.latest$</latest>
+        </search>
+        <option name="drilldown">none</option>
+        <option name="numberPrecision">0.00</option>
+        <option name="unit">GB</option>
+        <option name="rangeColors">["0x65A637","0xF7BC38","0xF58F39","0xD93F3C"]</option>
+        <option name="rangeValues">[0,100,500,1000]</option>
+      </single>
+    </panel>
+    
+    <panel>
+      <title>Unique Devices</title>
+      <single>
+        <search>
+          <query>
+            index=usb_security event_type="usb_device_connected" 
+            | stats dc(event_data.device_id) as unique_devices
+          </query>
+          <earliest>$time_range.earliest$</earliest>
+          <latest>$time_range.latest$</latest>
+        </search>
+        <option name="drilldown">none</option>
+        <option name="colorBy">value</option>
+        <option name="colorMode">block</option>
+        <option name="rangeColors">["0x65A637","0xF7BC38","0xD93F3C"]</option>
+        <option name="rangeValues">[0,15,30]</option>
+      </single>
+    </panel>
+  </row>
+
+  <!-- Threat Analysis Row -->
+  <row>
+    <panel>
+      <title>Real-time Threat Detection</title>
+      <table>
+        <search>
+          <query>
+            index=usb_security threat_level=* 
+            | eval timestamp=strftime(_time, "%Y-%m-%d %H:%M:%S")
+            | eval device_name=coalesce('event_data.device_info.label', 'event_data.device_info.device_id', "Unknown")
+            | eval user=coalesce('event_data.user', 'event_data.system_info.user', "Unknown")
+            | eval risk_score='event_data.threat_level'
+            | eval size_mb=round('event_data.details.bytes_transferred'/1048576,2)
+            | where risk_score="$risk_filter$" OR "$risk_filter$"="*"
+            | table timestamp, user, device_name, risk_score, size_mb, 'event_data.event_type', 'event_data.details'
+            | sort -timestamp
+            | head 20
+          </query>
+          <earliest>$time_range.earliest$</earliest>
+          <latest>$time_range.latest$</latest>
+          <refresh>30s</refresh>
+        </search>
+        <option name="drilldown">cell</option>
+        <option name="refresh.display">progressbar</option>
+        <option name="rowNumbers">true</option>
+        <format type="color" field="risk_score">
+          <colorPalette type="map">{"CRITICAL":#D93F3C,"HIGH":#F58F39,"MEDIUM":#F7BC38,"LOW":#65A637}</colorPalette>
+        </format>
+        <format type="number" field="size_mb">
+          <option name="precision">2</option>
+          <option name="unit">MB</option>
+        </format>
+      </table>
+    </panel>
+  </row>
+
+  <!-- Activity Visualization Row -->
+  <row>
+    <panel>
+      <title>USB Activity Timeline</title>
+      <chart>
+        <search>
+          <query>
+            index=usb_security (event_type="usb_device_connected" OR event_type="usb_data_transfer") 
+            | bucket _time span=1h
+            | stats count(eval(event_type="usb_device_connected")) as Connections, 
+                    sum(eval(if(event_type="usb_data_transfer", 'event_data.bytes_transferred', 0))) as data_bytes by _time
+            | eval Data_Transferred_MB=round(data_bytes/1048576,2)
+            | table _time, Connections, Data_Transferred_MB
+          </query>
+          <earliest>$time_range.earliest$</earliest>
+          <latest>$time_range.latest$</latest>
+        </search>
+        <option name="charting.chart">line</option>
+        <option name="charting.axisTitleX.text">Time</option>
+        <option name="charting.axisTitleY.text">Connections</option>
+        <option name="charting.legend.placement">bottom</option>
+        <option name="charting.seriesColors">[0x1f77b4,0x2ca02c]</option>
+        <option name="charting.axisY2.enabled">true</option>
+        <option name="charting.axisY2.scale">inherit</option>
+        <option name="charting.chart.overlayFields">Data_Transferred_MB</option>
+        <option name="charting.axisTitleY2.text">Data Transferred (MB)</option>
+      </chart>
+    </panel>
+    
+    <panel>
+      <title>Threat Level Distribution</title>
+      <chart>
+        <search>
+          <query>
+            index=usb_security threat_level=* 
+            | stats count by threat_level
+            | sort -count
+          </query>
+          <earliest>$time_range.earliest$</earliest>
+          <latest>$time_range.latest$</latest>
+        </search>
+        <option name="charting.chart">pie</option>
+        <option name="charting.legend.placement">right</option>
+        <option name="charting.chart.showPercent">true</option>
+      </chart>
+    </panel>
+  </row>
+
+  <!-- Device Analysis Row -->
+  <row>
+    <panel>
+      <title>Device Type Analysis</title>
+      <chart>
+        <search>
+          <query>
+            index=usb_security event_type="usb_device_connected" 
+            | stats count as connections by 'event_data.device_info.device_type'
+            | sort -connections
+          </query>
+          <earliest>$time_range.earliest$</earliest>
+          <latest>$time_range.latest$</latest>
+        </search>
+        <option name="charting.chart">bar</option>
+        <option name="charting.axisTitleX.text">Connections</option>
+        <option name="charting.axisTitleY.text">Device Type</option>
+        <option name="charting.legend.placement">bottom</option>
+      </chart>
+    </panel>
+    
+    <panel>
+      <title>Activity Heatmap (Hour vs Day)</title>
+      <table>
+        <search>
+          <query>
+            index=usb_security (event_type="usb_device_connected" OR event_type="usb_data_transfer") 
+            | eval hour=tonumber(strftime(_time, "%H")), day_name=strftime(_time, "%A")
+            | stats count as activity_count by hour, day_name
+            | eval activity_level=case(activity_count>20, "High", activity_count>10, "Medium", 1=1, "Low")
+            | sort hour, day_name
+          </query>
+          <earliest>$time_range.earliest$</earliest>
+          <latest>$time_range.latest$</latest>
+        </search>
+        <option name="drilldown">none</option>
+        <option name="rowNumbers">false</option>
+        <format type="color" field="activity_level">
+          <colorPalette type="map">{"High":#D93F3C,"Medium":#F7BC38,"Low":#65A637}</colorPalette>
+        </format>
+      </table>
+    </panel>
+  </row>
+
+  <!-- User Behavior Analysis -->
+  <row>
+    <panel>
+      <title>User Risk Profiles</title>
+      <table>
+        <search>
+          <query>
+            index=usb_security 
+            | eval user=coalesce('event_data.user', 'event_data.system_info.user', "Unknown")
+            | stats count as total_events, 
+                     dc('event_data.device_info.device_id') as unique_devices, 
+                     sum(eval(if(event_type="usb_data_transfer", 'event_data.bytes_transferred', 0))) as total_bytes
+                     by user
+            | eval total_gb=round(total_bytes/1073741824,2)
+            | eval risk_profile=case(unique_devices>5 AND total_gb>5, "High Risk", 
+                                   unique_devices>3 OR total_gb>3, "Medium Risk", 
+                                   1=1, "Low Risk")
+            | sort -total_gb
+            | table user, total_events, unique_devices, total_gb, risk_profile
+          </query>
+          <earliest>$time_range.earliest$</earliest>
+          <latest>$time_range.latest$</latest>
+        </search>
+        <option name="drilldown">cell</option>
+        <option name="rowNumbers">true</option>
+        <format type="color" field="risk_profile">
+          <colorPalette type="map">{"High Risk":#D93F3C,"Medium Risk":#F7BC38,"Low Risk":#65A637}</colorPalette>
+        </format>
+        <format type="number" field="total_gb">
+          <option name="precision">2</option>
+          <option name="unit">GB</option>
+        </format>
+      </table>
+    </panel>
+  </row>
+
+  <!-- Security Events Row -->
+  <row>
+    <panel>
+      <title>High-Risk Devices</title>
+      <table>
+        <search>
+          <query>
+            index=usb_security threat_level IN("HIGH","CRITICAL") 
+            | eval device_name=coalesce('event_data.device_info.label', 'event_data.device_info.device_id', "Unknown")
+            | eval device_id='event_data.device_info.device_id'
+            | stats count as alert_count, latest(_time) as last_seen by device_name, device_id, threat_level
+            | sort -alert_count
+            | eval last_seen=strftime(last_seen, "%Y-%m-%d %H:%M:%S")
+            | table last_seen, device_name, device_id, threat_level, alert_count
+          </query>
+          <earliest>$time_range.earliest$</earliest>
+          <latest>$time_range.latest$</latest>
+        </search>
+        <option name="drilldown">cell</option>
+        <option name="rowNumbers">false</option>
+        <format type="color" field="threat_level">
+          <colorPalette type="map">{"CRITICAL":#D93F3C,"HIGH":#F58F39}</colorPalette>
+        </format>
+      </table>
+    </panel>
+    
+    <panel>
+      <title>Security Compliance</title>
+      <table>
+        <search>
+          <query>
+            index=usb_security 
+            | eval compliance_status=case('event_data.details.action'=="blocked", "Policy Violation", 
+                                        'event_data.threat_level'=="HIGH", "High Risk Activity", 
+                                        1=1, "Compliant")
+            | stats count by compliance_status
+            | eventstats sum(count) as total_count
+            | eval percentage=round((count/total_count)*100,2)
+            | sort -count
+            | table compliance_status, count, percentage
+          </query>
+          <earliest>$time_range.earliest$</earliest>
+          <latest>$time_range.latest$</latest>
+        </search>
+        <option name="drilldown">none</option>
+        <option name="rowNumbers">false</option>
+        <format type="color" field="compliance_status">
+          <colorPalette type="map">{"Policy Violation":#D93F3C,"High Risk Activity":#F58F39,"Compliant":#65A637}</colorPalette>
+        </format>
+        <format type="number" field="percentage">
+          <option name="precision">2</option>
+          <option name="unit">%</option>
+        </format>
+      </table>
+    </panel>
+  </row>
+</form>

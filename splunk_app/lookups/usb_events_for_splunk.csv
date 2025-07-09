@@ -1,0 +1,7 @@
+# Example Splunk MLTK Lookup for USB Events
+# Place this file in splunk_app/local/lookups/ or splunk_app/lookups/
+# Splunk will use this as a lookup table for MLTK and dashboards
+
+timestamp,event_type,device_id,manufacturer,model,serial_number,action,score,bytes_transferred
+2025-07-08T12:00:00,DATA_TRANSFER,USB123,SanDisk,Cruzer,123456,allow,0.12,1048576
+2025-07-08T12:05:00,DEVICE_CONNECTED,USB124,Kingston,DataTraveler,654321,alert,0.67,0

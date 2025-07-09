@@ -1,29 +1,379 @@
 {
-  "data_path": "/tmp/usb_monitor_data",
-  "log_path": "/tmp/usb_dlp_logs",
-  "monitor_interval": 30,
-  "threat_detection": true,
-  "ml_enabled": true,
-  "deep_learning_enabled": true,
-  "splunk_export": true,
-  "alert_threshold": 0.8,
-  "max_transfer_size": 1073741824,
-  "allowed_hours": [8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
-  "allowed_days": [0, 1, 2, 3, 4],
-  "notification_settings": {
-    "email_alerts": false,
-    "log_alerts": true,
-    "console_alerts": true
+  "thresholds": {
+    "large_transfer_mb": 1000,
+    "frequent_access_count": 10,
+    "suspicious_hours": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      22,
+      23
+    ],
+    "max_devices_per_user": 5,
+    "anomaly_score_threshold": -0.5,
+    "critical_risk_score": 8.0,
+    "high_risk_score": 5.0,
+    "medium_risk_score": 2.0,
+    "mtp_large_transfer_mb": 500,
+    "mtp_max_concurrent_transfers": 3,
+    "mtp_session_timeout_minutes": 30
   },
-  "security_policies": {
-    "max_device_count": 10,
-    "require_device_registration": false,
-    "block_unknown_devices": false,
-    "quarantine_suspicious_files": false
+  "risk_weights": {
+    "size_factor": 0.3,
+    "frequency_factor": 0.2,
+    "time_factor": 0.2,
+    "device_factor": 0.1,
+    "pattern_factor": 0.2
   },
-  "model_settings": {
-    "retrain_interval": 86400,
-    "model_update_enabled": true,
-    "anomaly_detection_sensitivity": 0.7
+  "response_actions": {
+    "CRITICAL": [
+      "block",
+      "alert",
+      "log",
+      "notify_admin"
+    ],
+    "HIGH": [
+      "alert",
+      "log",
+      "notify_admin"
+    ],
+    "MEDIUM": [
+      "log",
+      "notify_user"
+    ],
+    "LOW": [
+      "log"
+    ]
+  },
+  "ml_settings": {
+    "model_path": "tmp/usb_ml_models",
+    "deep_model_path": "tmp/usb_deep_models",
+    "retrain_interval_hours": 24,
+    "feature_columns": [
+      "bytes_written",
+      "session_duration",
+      "hour",
+      "day_of_week",
+      "device_usage_count",
+      "time_since_last_transfer",
+      "bytes_per_second",
+      "session_frequency",
+      "unusual_time_score",
+      "device_risk_score",
+      "data_velocity",
+      "protocol_type_risk",
+      "mtp_transfer_pattern",
+      "device_trust_score"
+    ],
+    "threat_indicators": [
+      "known_malicious_pattern",
+      "suspicious_file_types",
+      "encryption_detected",
+      "steganography_risk",
+      "data_exfiltration_signature",
+      "insider_threat_score",
+      "mtp_protocol_abuse",
+      "unauthorized_device_access"
+    ]
+  },
+  "protocols": {
+    "mass_storage": {
+      "enabled": true,
+      "risk_level": "MEDIUM",
+      "monitor_file_operations": true,
+      "monitor_registry_changes": true
+    },
+    "mtp": {
+      "enabled": true,
+      "risk_level": "HIGH",
+      "monitor_wmp_events": true,
+      "monitor_shell_events": true,
+      "monitor_com_events": true,
+      "track_media_files": true,
+      "track_document_files": true,
+      "session_logging": true
+    },
+    "ptp": {
+      "enabled": true,
+      "risk_level": "MEDIUM",
+      "monitor_image_transfers": true
+    }
+  },
+  "mtp_monitoring": {
+    "event_sources": [
+      "Microsoft-Windows-WMP",
+      "Microsoft-Windows-Shell-Core",
+      "Microsoft-Windows-Kernel-Process",
+      "Microsoft-Windows-COM+"
+    ],
+    "file_extensions_to_monitor": [
+      ".jpg",
+      ".jpeg",
+      ".png",
+      ".gif",
+      ".bmp",
+      ".tiff",
+      ".mp4",
+      ".avi",
+      ".mov",
+      ".wmv",
+      ".flv",
+      ".mkv",
+      ".mp3",
+      ".wav",
+      ".flac",
+      ".aac",
+      ".ogg",
+      ".wma",
+      ".pdf",
+      ".doc",
+      ".docx",
+      ".xls",
+      ".xlsx",
+      ".ppt",
+      ".txt",
+      ".csv",
+      ".zip",
+      ".rar",
+      ".7z",
+      ".apk",
+      ".exe",
+      ".msi",
+      ".deb",
+      ".rpm"
+    ],
+    "monitor_folders": [
+      "DCIM",
+      "Pictures",
+      "Documents",
+      "Downloads",
+      "Music",
+      "Videos",
+      "Android/data"
+    ],
+    "detect_file_operations": [
+      "copy_from_device",
+      "copy_to_device",
+      "delete_from_device",
+      "create_folder",
+      "delete_folder",
+      "rename_file"
+    ]
+  },
+  "splunk_integration": {
+    "enabled": false,
+    "host": "localhost",
+    "port": 8089,
+    "username": "admin",
+    "password": "password",
+    "index": "usb_security",
+    "sourcetype": "usb:threat",
+    "ssl_verify": false,
+    "timeout": 30,
+    "retry_count": 3,
+    "batch_size": 100
+  },
+  "splunk": {
+    "host": "localhost",
+    "port": 8089,
+    "username": "admin",
+    "password": "password",
+    "index": "usb_security",
+    "sourcetype": "usb:threat",
+    "ssl_verify": false,
+    "timeout": 30,
+    "retry_count": 3,
+    "batch_size": 100
+  },
+  "database": {
+    "type": "sqlite",
+    "path": "tmp/usb_threats.db",
+    "backup_interval_hours": 6,
+    "max_size_mb": 1000,
+    "vacuum_interval_hours": 24
+  },
+  "logging": {
+    "level": "INFO",
+    "file": "tmp/usb_threat_engine.log",
+    "max_size_mb": 100,
+    "backup_count": 5,
+    "mtp_debug": false,
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  },
+  "device_categories": {
+    "USB_Flash": {
+      "risk_level": "MEDIUM",
+      "max_size_gb": 128,
+      "protocol": "mass_storage"
+    },
+    "External_HDD": {
+      "risk_level": "HIGH",
+      "max_size_gb": 5000,
+      "protocol": "mass_storage"
+    },
+    "USB_SSD": {
+      "risk_level": "HIGH",
+      "max_size_gb": 2000,
+      "protocol": "mass_storage"
+    },
+    "Mobile_Device": {
+      "risk_level": "HIGH",
+      "max_size_gb": 512,
+      "protocol": "mtp"
+    },
+    "Smartphone": {
+      "risk_level": "HIGH",
+      "max_size_gb": 1000,
+      "protocol": "mtp"
+    },
+    "Tablet": {
+      "risk_level": "HIGH",
+      "max_size_gb": 1000,
+      "protocol": "mtp"
+    },
+    "Digital_Camera": {
+      "risk_level": "MEDIUM",
+      "max_size_gb": 256,
+      "protocol": "ptp"
+    },
+    "Unknown": {
+      "risk_level": "CRITICAL",
+      "max_size_gb": 0,
+      "protocol": "unknown"
+    }
+  },
+  "file_types": {
+    "documents": {
+      "risk_level": "MEDIUM",
+      "extensions": [
+        ".doc",
+        ".docx",
+        ".pdf",
+        ".txt",
+        ".xlsx",
+        ".ppt"
+      ]
+    },
+    "images": {
+      "risk_level": "LOW",
+      "extensions": [
+        ".jpg",
+        ".jpeg",
+        ".png",
+        ".gif",
+        ".bmp",
+        ".tiff"
+      ]
+    },
+    "videos": {
+      "risk_level": "MEDIUM",
+      "extensions": [
+        ".mp4",
+        ".avi",
+        ".mov",
+        ".wmv",
+        ".flv",
+        ".mkv"
+      ]
+    },
+    "audio": {
+      "risk_level": "LOW",
+      "extensions": [
+        ".mp3",
+        ".wav",
+        ".flac",
+        ".aac",
+        ".ogg",
+        ".wma"
+      ]
+    },
+    "software": {
+      "risk_level": "CRITICAL",
+      "extensions": [
+        ".exe",
+        ".msi",
+        ".deb",
+        ".apk",
+        ".app"
+      ]
+    },
+    "data": {
+      "risk_level": "HIGH",
+      "extensions": [
+        ".csv",
+        ".json",
+        ".xml",
+        ".sql",
+        ".db"
+      ]
+    },
+    "backup": {
+      "risk_level": "HIGH",
+      "extensions": [
+        ".zip",
+        ".rar",
+        ".7z",
+        ".tar",
+        ".gz"
+      ]
+    },
+    "encrypted": {
+      "risk_level": "CRITICAL",
+      "extensions": [
+        ".gpg",
+        ".enc",
+        ".aes",
+        ".pgp"
+      ]
+    },
+    "system": {
+      "risk_level": "CRITICAL",
+      "extensions": [
+        ".sys",
+        ".dll",
+        ".reg",
+        ".ini",
+        ".cfg"
+      ]
+    }
+  },
+  "device_trust": {
+    "trusted_devices": [],
+    "corporate_devices": [],
+    "personal_devices": [],
+    "blocked_devices": [],
+    "trust_decay_days": 30,
+    "auto_trust_threshold": 10
+  },
+  "alerts": {
+    "email_enabled": false,
+    "email_server": "smtp.company.com",
+    "email_port": 587,
+    "email_from": "security@company.com",
+    "email_to": [
+      "admin@company.com",
+      "security-team@company.com"
+    ],
+    "email_username": "",
+    "email_password": "",
+    "email_use_tls": true,
+    "slack_enabled": false,
+    "slack_webhook": "",
+    "sms_enabled": false,
+    "mtp_alerts_enabled": true,
+    "real_time_alerts": true
+  },
+  "performance": {
+    "batch_size": 1000,
+    "max_concurrent_analyses": 5,
+    "cache_size_mb": 256,
+    "cleanup_interval_hours": 12,
+    "mtp_event_buffer_size": 5000,
+    "mtp_processing_threads": 2,
+    "memory_limit_mb": 512,
+    "disk_usage_threshold_percent": 85
   }
 }

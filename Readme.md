@@ -1,17 +1,17 @@
 # Smart USB Data Loss Prevention System
-**Splunk Build-a-thon AI/ML Track Submission**
+**Splunk Build-a-thon AI/ML Track-4 Submission**
 
 ## Problem Statement & Solution Overview
 
 ### Problem Statement
 **Unusual Volume of Bytes Written to USB per Device - Automated Data Exfiltration Detection**
 
-Data exfiltration via USB devices remains one of the most common and dangerous insider threats, yet most organizations lack real-time detection capabilities. Traditional DLP solutions are expensive, complex, and often generate too many false positives. There's a critical gap in affordable, ML-driven solutions that can automatically distinguish between legitimate business use and potential data theft.
+Data theft via USB devices remains one of the most common and dangerous threats, yet most organizations lack real-time detection capabilities. Traditional DLP solutions are expensive, complex, and often generate too many false positives. There's a gap in affordable, ML-driven solutions that can automatically distinguish between legitimate business use and potential data theft.
 
 ### Solution Overview
 The Smart USB Data Loss Prevention System is a lightweight, ML-powered Splunk app that automatically learns normal USB usage patterns for each user and device, then detects suspicious data transfer activities in real-time. This fills the major gap between basic logging and expensive enterprise DLP solutions.
 
-**Key Innovation:** Instead of relying on static rules, the system builds dynamic behavioral baselines and detects statistical anomalies that indicate potential data exfiltration attempts.
+**Key Innovation:** Instead of relying on static rules, the system builds dynamic behavioral baselines and detects anomalies that indicate potential data theft attempts.
 
 ## Machine Learning Approach
 
@@ -34,6 +34,6 @@ The Smart USB Data Loss Prevention System is a lightweight, ML-powered Splunk ap
 - **Unsupervised approach**: No need for historical breach data, learns from normal operations
 
 ## Support & Contact
-For technical support or questions about this implementation, please contact the development team : aayushr2201@gmail.com, dadwalkhushi05@gmail.com.
+For technical support or questions about this project, please contact the development team : aayushr2201@gmail.com, dadwalkhushi05@gmail.com.
 
 ---

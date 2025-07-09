@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USB DLP Security Dashboard</title>
+    <!-- Use external stylesheet for maintainability -->
+    <link rel="stylesheet" href="/static/styles.css">
+    <!-- Socket.IO -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>USB DLP Security Dashboard</h1>
+            <p class="subtitle">Real-time USB Device Monitoring & Data Loss Prevention</p>
+        </div>
+
+        <div class="status-bar">
+            <div class="connection-status">
+                <div class="status-dot disconnected" id="connection-dot"></div>
+                <span id="connection-text">Connecting to server...</span>
+            </div>
+            <div id="last-updated">Last updated: Never</div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card active-devices">
+                <div class="icon"></div>
+                <div class="value" id="total-devices">0</div>
+                <div class="label">Total Devices</div>
+            </div>
+            <div class="stat-card blocked-devices">
+                <div class="icon"></div>
+                <div class="value" id="mtp-devices">0</div>
+                <div class="label">MTP Devices</div>
+            </div>
+            <div class="stat-card threat-level">
+                <div class="icon"></div>
+                <div class="value" id="threat-level">Normal</div>
+                <div class="label">System Status</div>
+            </div>
+        </div>
+
+        <div class="events-section">
+            <div class="section-header">
+                <h2 class="section-title">Connected Devices</h2>
+                <button class="refresh-btn" onclick="refreshDevices()"> Refresh</button>
+            </div>
+            <div id="device-container">
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>Waiting for USB devices...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Use external JavaScript file for dashboard logic -->
+    <script src="/static/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+{
+  "report_generated": "2025-07-09T09:02:40.859408",
+  "analysis_period": "7 days",
+  "summary": {
+    "total_users": 5,
+    "total_devices": 5,
+    "total_threats": 0,
+    "users_with_threats": 2,
+    "threat_trend": "stable"
+  },
+  "threats": {
+    "risk_distribution": {},
+    "mtp_threats": {},
+    "daily_average": 0
+  },
+  "devices": {
+    "by_category": {
+      "SMARTPHONE": 2,
+      "STORAGE": 3
+    },
+    "by_protocol": {
+      "MTP": 2,
+      "USB_MASS_STORAGE": 3
+    },
+    "by_risk_level": {
+      "CRITICAL": 1,
+      "HIGH": 1,
+      "LOW": 1,
+      "MEDIUM": 2
+    }
+  },
+  "users": {},
+  "mtp_analysis": {
+    "total_mtp_activities": 0,
+    "smartphone_connections": 0,
+    "photo_transfers": 0,
+    "video_transfers": 0,
+    "media_syncs": 0
+  },
+  "recommendations": [
+    "Review and potentially block high-risk devices",
+    "Immediately investigate critical-risk devices",
+    "High percentage of users with threats - consider security training"
+  ]
+}
