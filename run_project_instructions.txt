@@ -1,0 +1,39 @@
+**execute all the commands in terminal git bash (not powershell) 
+Open vs code -> Terminal -> New Terminal -> git bash
+
+git clone https://github.com/aayushr22/smart_usb_dlp.git 
+open vs code -> open folder -> open smart_usb_dlp
+
+# Create virtual environment
+python -m venv venv
+
+# Activate virtual environment
+venv/Scripts/activate
+
+# Install all required packages
+pip install -r requirements.txt
+
+**now create 5 different terminals and don’t close any of them
+
+In terminal 1:
+python config/splunk_config.py
+python src/dashboard/dashboard_server.py
+//open dashboard server at -> http://192.168.1.4:8081/
+
+In terminal 2:
+python src/dashboard/web_dashboard.py
+
+In terminal 3:
+python src/splunk/splunk_setup.py
+//open splunk security dashboard at -> http://localhost:8000/en-US/app/search/usb_security_dashboard?form.time_range.earliest=-24h%40h&form.time_range.latest=now&form.user_filter=*&form.risk_filter=*
+// Default login credentials for splunk (change in config if you want to use your own credentials):
+•	Username: aayushr2201@gmail.com
+•	Password: Aayush@22
+
+
+In terminal 4:
+python src/usb/usb_monitor.py
+
+In terminal 5:
+python src/main.py
+//open dashboard at-> http://192.168.1.4:5000/
