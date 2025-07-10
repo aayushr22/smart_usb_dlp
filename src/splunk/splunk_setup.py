@@ -17,8 +17,8 @@ class SplunkSetup:
     def __init__(self):
         self.splunk_host = os.getenv('SPLUNK_HOST', 'localhost')
         self.splunk_mgmt_port = os.getenv('SPLUNK_MGMT_PORT', '8089')
-        self.splunk_username = os.getenv('SPLUNK_USERNAME', 'aayushr2201@gmail.com') #my username
-        self.splunk_password = os.getenv('SPLUNK_PASSWORD', 'Aayush@22') #my passsword
+        self.splunk_username = os.getenv('SPLUNK_USERNAME', 'your username') #your username
+        self.splunk_password = os.getenv('SPLUNK_PASSWORD', 'your password') #your password
         self.index_name = os.getenv('SPLUNK_INDEX', 'usb_security')
         
         self.base_url = f"https://{self.splunk_host}:{self.splunk_mgmt_port}"

@@ -12,8 +12,8 @@ class SplunkConfig:
     
     # Splunk management settings
     SPLUNK_MGMT_PORT = os.getenv('SPLUNK_MGMT_PORT', '8089')
-    SPLUNK_USERNAME = os.getenv('SPLUNK_USERNAME', 'aayushr2201@gmail.com')
-    SPLUNK_PASSWORD = os.getenv('SPLUNK_PASSWORD', 'Aayush@22')
+    SPLUNK_USERNAME = os.getenv('SPLUNK_USERNAME', 'your username')
+    SPLUNK_PASSWORD = os.getenv('SPLUNK_PASSWORD', 'your password')
     
     # Logging
     LOG_LEVEL = os.getenv('LOG_LEVEL', 'INFO')

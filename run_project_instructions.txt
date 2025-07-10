@@ -26,10 +26,10 @@ python src/dashboard/web_dashboard.py
 In terminal 3:
 python src/splunk/splunk_setup.py
 //open splunk security dashboard at -> http://localhost:8000/en-US/app/search/usb_security_dashboard?form.time_range.earliest=-24h%40h&form.time_range.latest=now&form.user_filter=*&form.risk_filter=*
-// Default login credentials for splunk (change in config if you want to use your own credentials):
-•	Username: aayushr2201@gmail.com
-•	Password: Aayush@22
-
+// login credentials for splunk change in config
+•	Username:
+•	Password: 
+//generate HEC token and index(name: usb_security) and put them in all config files
 
 In terminal 4:
 python src/usb/usb_monitor.py

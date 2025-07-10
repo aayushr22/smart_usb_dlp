@@ -145,8 +145,8 @@ class USBConfig:
                 'enabled': False,  # Set to True to enable Splunk integration
                 'host': 'localhost',
                 'port': 8089,
-                'username': 'aayushr2201@gmail.com',
-                'password': 'Aayush@22',
+                'username': 'your username',
+                'password': 'your password',
                 'index': 'usb_security',
                 'sourcetype': 'usb:threat',
                 'ssl_verify': False,
@@ -158,8 +158,8 @@ class USBConfig:
             'splunk': {
                 'host': 'localhost',
                 'port': 8089,
-                'username': 'aayushr2201@gmail.com',
-                'password': 'Aayush@22',
+                'username': 'your username',
+                'password': 'your password',
                 'index': 'usb_security',
                 'sourcetype': 'usb:threat',
                 'ssl_verify': False,
