@@ -7,7 +7,7 @@ class SplunkConfig:
     # Splunk HTTP Event Collector
     SPLUNK_HOST = os.getenv('SPLUNK_HOST', 'localhost')
     SPLUNK_PORT = os.getenv('SPLUNK_PORT', '8088')
-    SPLUNK_TOKEN = os.getenv('SPLUNK_TOKEN', '2b32ea42-8e5c-4dba-88b5-06998e6b3868')
+    SPLUNK_TOKEN = os.getenv('SPLUNK_TOKEN', 'generate your token')
     SPLUNK_INDEX = os.getenv('SPLUNK_INDEX', 'usb_security')
     
     # Splunk management settings

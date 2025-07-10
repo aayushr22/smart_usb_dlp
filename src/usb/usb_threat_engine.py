@@ -33,7 +33,7 @@ class SplunkLogger:
     def __init__(self):
         self.splunk_host = os.getenv('SPLUNK_HOST', 'localhost')
         self.splunk_port = os.getenv('SPLUNK_PORT', '8088')
-        self.splunk_token = os.getenv('SPLUNK_TOKEN', '2b32ea42-8e5c-4dba-88b5-06998e6b3868')
+        self.splunk_token = os.getenv('SPLUNK_TOKEN', 'your token')
         self.splunk_index = os.getenv('SPLUNK_INDEX', 'usb_security')
         
         # Setup

@@ -130,17 +130,17 @@ class SplunkSetup:
                         return token
                     else:
                         print("Could not find token in response, using your existing token")
-                        print("Using existing HEC token: 2b32ea42-8e5c-4dba-88b5-06998e6b3868")
-                        return "2b32ea42-8e5c-4dba-88b5-06998e6b3868"
+                        print("Using existing HEC token: your token")
+                        return "your token"
                 except Exception as parse_error:
                     print(f"Could not parse response: {parse_error}")
-                    print("Using existing HEC token: 2b32ea42-8e5c-4dba-88b5-06998e6b3868")
-                    return "2b32ea42-8e5c-4dba-88b5-06998e6b3868"
+                    print("Using existing HEC token: your token")
+                    return "your token"
             elif response.status_code == 409:
                 print("HEC token already exists")
                 # using existing token
-                print("Using existing HEC token: 2b32ea42-8e5c-4dba-88b5-06998e6b3868")
-                return "2b32ea42-8e5c-4dba-88b5-06998e6b3868"
+                print("Using existing HEC token: your token")
+                return "your token"
             else:
                 print(f"Failed to create HEC token: {response.status_code}")
                 print(f"Response: {response.text}")
